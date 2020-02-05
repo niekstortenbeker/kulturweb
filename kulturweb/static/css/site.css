@@ -1,0 +1,180 @@
+body {
+    color: #282828;
+}
+
+a {
+    color: #161616;
+}
+
+a:hover {
+    color: #B1B67D;
+}
+
+.navbar-custom {
+    background-color: #6EB1B9;
+    padding: 10px 30px;
+}
+
+.hero {
+    background-color: #59AABE;
+    color: #fff;
+    padding: 30px 10px;
+    text-align: center;
+}
+
+/** program setup settings **/
+
+.program-settings {
+    padding: 25px 10px 0px 0px;
+}
+
+.program-setting {
+    text-align:center;
+    margin-top: 5px;
+    margin-bottom: 5px
+}
+
+.program-setting .dropdown {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.program-setting .dropdown .dropdown-toggle[aria-expanded="true"] {
+    background: #B1B67D;
+}
+
+.program-setting .dropdown-item:hover{
+background: #B1B67D;
+}
+
+.program-setting .film{
+    background-color: #284E9F;
+    border: #284E9F;
+}
+
+.program-setting .stage{
+    background-color: #9E288A;
+    border: #9E288A;
+}
+
+.program-setting .music{
+    background-color: #715D20;
+    border: #715D20;
+}
+
+.program-setting button:hover{
+    background-color: #B1B67D;
+}
+
+.program-setting .custom-control-label{
+    color: #999999;
+}
+
+.program-setting .custom-control-label:hover{
+    color: #B1B67D;
+}
+
+.program-setting .custom-control-input:checked:hover ~ .custom-control-label::after,
+.program-setting .custom-control-input:hover ~ .custom-control-label::after {
+  background-color: #B1B67D;
+}
+
+/* fill after clicking */
+.program-setting .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #999999;
+  border: #999999;
+}
+
+/* knob after clicking */
+.program-setting .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #282828;
+  border: #282828;
+}
+
+/** show list **/
+
+.show-list .show{
+    padding: 5px;
+    max-width: 800px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.show-list h2{
+    padding: 15px 10px 0px 0px;
+}
+
+/** show time **/
+
+.show-list .show .time{
+    font-weight: bold;
+    margin-right: 10px;
+    min-width: 50px
+}
+
+/** show location **/
+
+.show-list .show .location{
+    margin-right: 5px;
+}
+
+.show-list .show .location.film mark{
+    background-color: #284E9F;
+    color: #fff;
+}
+
+.show-list .show .location.stage mark{
+    background-color: #9E288A;
+    color: #fff;
+}
+
+.show-list .show .location.music mark{
+    background-color: #715D20;
+    color: #fff;
+}
+
+/** show title **/
+
+.show-list .show .title{
+    font-size: 18px;
+    margin-left: 5px;
+    margin-right: 5px;
+    line-height: 1.5em;
+}
+
+.show-list .show .title a.film{
+    color: #284E9F;
+}
+
+.show-list .show .title a.stage{
+    color: #9E288A;
+}
+
+.show-list .show .title a.music{
+    color: #715D20;
+}
+
+.show-list .show .title a:hover {
+    color: #B1B67D;
+}
+
+/** show description **/
+
+.show-list .show .desc {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 16px;
+    margin-top: 2px;
+}
+
+
+
+footer {
+    margin-top: 50px;
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    background-color: #6EB1B9;
+}

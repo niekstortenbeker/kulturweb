@@ -1,0 +1,106 @@
+<div metal:use-macro="load: _layout.pt">
+<div metal:fill-slot="content">
+
+<div class="content">
+
+    <div class="hero">
+        <h1>
+            Kultur Programm Bremen
+        </h1>
+        <p class="lead">
+            Ein eigensinnige kulturelle Auswahl in Bremen
+        </p>
+    </div>
+
+    <div class="program-settings">
+        <div class="container-fluid">
+            <div class="row justify-content-sm-center">
+
+                <div class="col-sm-auto align-self-center program-setting">
+                    <ul class="nav nav-pills">
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           data-toggle="dropdown" href="#"
+                           role="button"
+                           aria-haspopup="true"
+                           aria-expanded="false">Heute</a>
+                        <div class="dropdown-menu" style="">
+                          <a class="dropdown-item" href="#">Morgen</a>
+                          <a class="dropdown-item" href="#">Übermorgen</a>
+                          <a class="dropdown-item" href="#">Diese Woche</a>
+                        </div>
+                      </li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-auto align-self-center program-setting">
+                    <button type="button" class="btn btn-primary film">Kino</button>
+                    <button type="button" class="btn btn-primary stage">Bühne</button>
+                    <button type="button" class="btn btn-primary music">Musik</button>
+                </div>
+
+                <div class="col-sm-auto align-self-center program-setting">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                        <label class="custom-control-label" for="customSwitch1">auch synchronisierter Filme</label>
+                    </div>
+                </div>
+                <!-- Default checked -->
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container show-list">
+        <div class="row justify-content-center">
+
+            <div class="col-sm-auto">
+                <div class="show" tal:repeat="s shows">
+                    <div tal:condition="s.day"><h2>${s.day}</h2></div>
+
+                    <table tal:condition="not s.day" class="show-info">
+                        <tr>
+                            <td>
+                                <span class="time">${s.time}</span>
+                            </td>
+                            <td>
+                                <span tal:condition="s.type == 'film'" class="location film">
+                                    <mark>${s.location}</mark>
+                                </span>
+                                <span tal:condition="s.type == 'stage'" class="location stage">
+                                    <mark>${s.location}</mark></span>
+                                <span tal:condition="s.type == 'music'" class="location music">
+                                    <mark>${s.location}</mark></span>
+                                <span tal:condition="s.type == 'film'" class="title">
+                                    <a class="film" href="${s.url}">${s.title}</a>
+                                </span>
+                                <span tal:condition="s.type == 'stage'" class="title">
+                                    <a class="stage" href="${s.url}">${s.title}</a>
+                                </span>
+                                <span tal:condition="s.type == 'music'" class="title">
+                                    <a class="music" href="${s.url}">${s.title}</a>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <div class="d-none d-md-block desc">${s.description}</div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+<!--  {'day': 'Monday 02-03', 'location': '', 'time': '', 'title': '', 'url': '', 'description': ''},-->
+
+</div>
+</div>
+
+<div metal:fill-slot="additional-css" tal:omit-tag>
+    <!-- additional css from the page -->
+</div>
+</div>
