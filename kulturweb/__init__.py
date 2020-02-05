@@ -22,4 +22,8 @@ def init_routing(config):
     config.add_route('home', '/')
     config.add_route('about', '/about')
 
+    # filter options
+    config.add_route('filter', '/filter/{when}-{where}-{options}')
+    config.add_route('filter/', '/filter/{when}-{where}-{options}/')
+
     config.scan()

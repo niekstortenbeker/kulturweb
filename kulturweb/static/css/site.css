@@ -10,6 +10,10 @@ a:hover {
     color: #B1B67D;
 }
 
+a:active {
+    color: #282828!important;
+}
+
 .navbar-custom {
     background-color: #6EB1B9;
     padding: 10px 30px;
@@ -45,7 +49,7 @@ a:hover {
 }
 
 .program-setting .dropdown-item:hover{
-background: #B1B67D;
+    background: #B1B67D;
 }
 
 .program-setting .film{
@@ -67,6 +71,7 @@ background: #B1B67D;
     background-color: #B1B67D;
 }
 
+/* text of switch */
 .program-setting .custom-control-label{
     color: #999999;
 }
@@ -75,15 +80,28 @@ background: #B1B67D;
     color: #B1B67D;
 }
 
+.program-setting .custom-control-label:active{
+    color: #282828;
+}
+
+/* color knob on hover */
 .program-setting .custom-control-input:checked:hover ~ .custom-control-label::after,
 .program-setting .custom-control-input:hover ~ .custom-control-label::after {
   background-color: #B1B67D;
 }
-
+/* color knob on click */
+.program-setting .custom-control-input:checked:active ~ .custom-control-label::after,
+.program-setting .custom-control-input:active ~ .custom-control-label::after {
+  background-color: #282828;
+  border-color: #282828;
+}
+.program-setting .custom-control-input:active ~ .custom-control-label::before {
+  background-color: #FFFFFF;
+}
 /* fill after clicking */
 .program-setting .custom-control-input:checked ~ .custom-control-label::before {
   background-color: #999999;
-  border: #999999;
+  border-color: #999999;
 }
 
 /* knob after clicking */
