@@ -1,26 +1,38 @@
+:root{
+    --color-link-hover: #B1B67D;
+    --color-link-active: #282828;
+    --color-text: #282828;
+    --color-text-light-grey: #999999;
+    --color-film: #284E9F;
+    --color-stage: #9E288A;
+    --color-music: #715D20;
+    --color-navbar: #6EB1B9;
+    --color-hero: #59AABE;
+}
+
 body {
-    color: #282828;
+    color: var(--color-text);
 }
 
 a {
-    color: #161616;
+    color: var(--color-text);
 }
 
 a:hover {
-    color: #B1B67D;
+    color: var(--color-link-hover);
 }
 
 a:active {
-    color: #282828!important;
+    color: var(--color-text)!important;
 }
 
 .navbar-custom {
-    background-color: #6EB1B9;
+    background-color: var(--color-navbar);
     padding: 10px 30px;
 }
 
 .hero {
-    background-color: #59AABE;
+    background-color: var(--color-hero);
     color: #fff;
     padding: 30px 10px;
     text-align: center;
@@ -45,69 +57,69 @@ a:active {
 
 
 .program-setting .dropdown .dropdown-toggle[aria-expanded="true"] {
-    background: #B1B67D;
+    background: var(--color-link-hover);
 }
 
 .program-setting .dropdown-item:hover{
-    background: #B1B67D;
+    background: var(--color-link-hover);
 }
 
 .program-setting .film{
-    background-color: #284E9F;
-    border: #284E9F;
+    background-color: var(--color-film);
+    border: var(--color-film);
 }
 
 .program-setting .stage{
-    background-color: #9E288A;
-    border: #9E288A;
+    background-color: var(--color-stage);
+    border: var(--color-stage);
 }
 
 .program-setting .music{
-    background-color: #715D20;
-    border: #715D20;
+    background-color: var(--color-music);
+    border: var(--color-music);
 }
 
 .program-setting button:hover{
-    background-color: #B1B67D;
+    background-color: var(--color-link-hover);
 }
 
 /* text of switch */
 .program-setting .custom-control-label{
-    color: #999999;
+    color: var(--color-text-light-grey);
 }
 
 .program-setting .custom-control-label:hover{
-    color: #B1B67D;
+    color: var(--color-link-hover);
 }
 
 .program-setting .custom-control-label:active{
-    color: #282828;
+    color: var(--color-link-active);
 }
 
 /* color knob on hover */
 .program-setting .custom-control-input:checked:hover ~ .custom-control-label::after,
 .program-setting .custom-control-input:hover ~ .custom-control-label::after {
-  background-color: #B1B67D;
+  background-color: var(--color-link-hover);
 }
 /* color knob on click */
 .program-setting .custom-control-input:checked:active ~ .custom-control-label::after,
 .program-setting .custom-control-input:active ~ .custom-control-label::after {
-  background-color: #282828;
-  border-color: #282828;
+  background-color: var(--color-link-active);
+  border-color: var(--color-link-active);
 }
 .program-setting .custom-control-input:active ~ .custom-control-label::before {
   background-color: #FFFFFF;
 }
 /* fill after clicking */
 .program-setting .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #999999;
-  border-color: #999999;
+  background-color: var(--color-text-light-grey);
+  border-color: var(--color-text-light-grey);
 }
 
 /* knob after clicking */
 .program-setting .custom-control-input:checked ~ .custom-control-label::after {
-  background-color: #282828;
-  border: #282828;
+  background-color: var(--color-link-active);
+  border: var(--color-link-active);
 }
 
 /** show list **/
@@ -138,17 +150,17 @@ a:active {
 }
 
 .show-list .show .location.film mark{
-    background-color: #284E9F;
+    background-color: var(--color-film);
     color: #fff;
 }
 
 .show-list .show .location.stage mark{
-    background-color: #9E288A;
+    background-color: var(--color-stage);
     color: #fff;
 }
 
 .show-list .show .location.music mark{
-    background-color: #715D20;
+    background-color: var(--color-music);
     color: #fff;
 }
 
@@ -162,19 +174,19 @@ a:active {
 }
 
 .show-list .show .title a.film{
-    color: #284E9F;
+    color: var(--color-film);
 }
 
 .show-list .show .title a.stage{
-    color: #9E288A;
+    color: var(--color-stage);
 }
 
 .show-list .show .title a.music{
-    color: #715D20;
+    color: var(--color-music);
 }
 
 .show-list .show .title a:hover {
-    color: #B1B67D;
+    color: var(--color-link-hover);
 }
 
 /** show description **/
@@ -194,5 +206,5 @@ footer {
     padding: 30px;
     text-align: center;
     color: white;
-    background-color: #6EB1B9;
+    background-color: var(--color-navbar);
 }
