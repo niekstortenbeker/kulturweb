@@ -23,7 +23,11 @@ def init_routing(config):
     config.add_route('about', '/about')
 
     # filter options
-    config.add_route('filter', '/filter/{when}-{where}-{options}')
-    config.add_route('filter/', '/filter/{when}-{where}-{options}/')
+    # TODO also add only /kino etc.
+    # http://localhost:6543/kino/wann=heute+synchronisierter=ja
+    config.add_route('filter', '/{what}/wann={when}+synchronisierter={dubbed}')
+    config.add_route('filter/', '/{what}/wann={when}+synchronisierter={dubbed}/')
 
+    config.add_route('package_details', '/project/test={package_name}')
+    #               http://localhost:6543/project/awscli/releases/1.15.30
     config.scan()

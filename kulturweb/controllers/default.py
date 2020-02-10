@@ -24,6 +24,9 @@ def get_test_shows():
 def home_index(_):
     return {
         'shows': get_test_shows(),
+        'what': 'alle',
+        'when': 'heute',
+        'dubbed': 'ja',
         'filter': ''
     }
 
@@ -32,31 +35,14 @@ def home_index(_):
 @view_config(route_name='filter', renderer='kulturweb:templates/home.pt')
 def filter_shows(request: Request):
     when = request.matchdict.get('when')
-    where = request.matchdict.get('where')
-    options = request.matchdict.get('options')
-
-    filter_keywords = 'start'
-
-    if 'heute' in when:
-        filter_keywords += 'today '
-    if 'morgen' in when:
-        filter_keywords += 'morgen '
-    if 'uebermorgen' in when:
-        filter_keywords += 'uebermorgen '
-    if 'woche' in when:
-        filter_keywords += 'woche '
-    if 'kino' in where:
-        filter_keywords += 'kino '
-    if 'buehne' in where:
-        filter_keywords += 'buehne '
-    if 'musik' in where:
-        filter_keywords += 'musik '
-    if 'eingeschlossen' in options:
-            filter_keywords += 'auch dubbed '
-    if 'ausgeschlossen' in options:
-                filter_keywords += 'nicht dubbed '
+    what = request.matchdict.get('what')
+    dubbed = request.matchdict.get('dubbed')
+    filter_keywords = f"what: {what}, when: {when}, dubbed: {dubbed}"
 
     return {
         'shows': get_test_shows(),
+        'what': what,
+        'when': when,
+        'dubbed': dubbed,
         'filter': filter_keywords,
     }

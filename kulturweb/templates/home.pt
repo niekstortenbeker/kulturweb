@@ -8,41 +8,47 @@
             Kultur Programm Bremen
         </h1>
         <p class="lead">
-            Ein eigensinnige kulturelle Auswahl in Bremen
+            Eine eigensinnige kulturelle Auswahl in Bremen
         </p>
     </div>
 
-    <div class="program-settings">
+    <div class="program-settings"  id="settings">
         <div class="container-fluid">
             <div class="row justify-content-sm-center">
-
-                <div class="col-sm-auto align-self-center program-setting" id="settings">
+                <div class="col-sm-auto align-self-center program-setting">
                     <ul class="nav nav-pills">
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle"
                            data-toggle="dropdown" href="#"
                            role="button"
                            aria-haspopup="true"
-                           aria-expanded="false">Heute</a>
+                           aria-expanded="false">${when}</a>
                         <div class="dropdown-menu" style="">
-                          <a class="dropdown-item" href="#">Morgen</a>
-                          <a class="dropdown-item" href="#">Übermorgen</a>
-                          <a class="dropdown-item" href="#">Diese Woche</a>
+                          <a tal:condition="when != 'heute'" class="dropdown-item" href="/${what}/wann=heute+synchronisierter=${dubbed}#settings">Heute</a>
+                          <a tal:condition="when != 'morgen'" class="dropdown-item" href="/${what}/wann=morgen+synchronisierter=${dubbed}#settings">Morgen</a>
+                          <a tal:condition="when != 'uebermorgen'" class="dropdown-item" href="/${what}/wann=uebermorgen+synchronisierter=${dubbed}#settings">Übermorgen</a>
+                          <a tal:condition="when != 'woche'" class="dropdown-item" href="/${what}/wann=woche+synchronisierter=${dubbed}#settings">Diese Woche</a>
                         </div>
                       </li>
                     </ul>
                 </div>
 
-                <div class="col-sm-auto align-self-center program-setting">
-                    <button type="button" class="btn btn-primary film">Kino</button>
-                    <button type="button" class="btn btn-primary stage">Bühne</button>
-                    <button type="button" class="btn btn-primary music">Musik</button>
+                <div class="col-sm-auto align-self-center program-setting what">
+                    <a tal:condition="what == 'alle'" type="button" class="btn btn-primary film" href="/kino/wann=${when}+synchronisierter=${dubbed}#settings">Kino</a>
+                    <a tal:condition="what == 'kino'" type="button" class="btn btn-primary film" href="/alle/wann=${when}+synchronisierter=${dubbed}#settings">Kino</a>
+                    <a tal:condition="what not in ['kino', 'alle']" type="button" class="btn btn-outline-primary film" href="/kino/wann=${when}+synchronisierter=${dubbed}#settings">Kino</a>
+                    <a tal:condition="what == 'alle'" type="button" class="btn btn-primary stage" href="/buehne/wann=${when}+synchronisierter=${dubbed}#settings">Bühne</a>
+                    <a tal:condition="what == 'buehne'" type="button" class="btn btn-primary stage" href="/alle/wann=${when}+synchronisierter=${dubbed}#settings">Bühne</a>
+                    <a tal:condition="what not in ['buehne', 'alle']" type="button" class="btn btn-outline-primary stage" href="/buehne/wann=${when}+synchronisierter=${dubbed}#settings">Bühne</a>
+                    <a tal:condition="what == 'alle'" type="button" class="btn btn-primary music" href="/musik/wann=${when}+synchronisierter=${dubbed}#settings">Musik</a>
+                    <a tal:condition="what == 'musik'" type="button" class="btn btn-primary music" href="/alle/wann=${when}+synchronisierter=${dubbed}#settings">Musik</a>
+                    <a tal:condition="what not in ['musik', 'alle']" type="button" class="btn btn-outline-primary music" href="/musik/wann=${when}+synchronisierter=${dubbed}#settings">Musik</a>
                 </div>
 
                 <div class="col-sm-auto align-self-center program-setting">
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                        <label class="custom-control-label" for="customSwitch1">auch synchronisierter Filme</label>
+                        <label class="custom-control-label" for="customSwitch1">kein synchronisierter Filme</label>
                     </div>
                 </div>
                 <!-- Default checked -->

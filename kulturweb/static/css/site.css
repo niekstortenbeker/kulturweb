@@ -60,27 +60,50 @@ a:active {
     background: var(--color-link-hover);
 }
 
+
 .program-setting .dropdown-item:hover{
     background: var(--color-link-hover);
 }
 
-.program-setting .film{
+.program-setting.what .btn-primary.film{
     background-color: var(--color-film);
-    border: var(--color-film);
+    border-color: var(--color-film);
 }
 
-.program-setting .stage{
+.program-setting.what .btn-primary.stage{
     background-color: var(--color-stage);
-    border: var(--color-stage);
+    border-color: var(--color-stage);
 }
 
-.program-setting .music{
+.program-setting.what .btn-primary.music{
     background-color: var(--color-music);
-    border: var(--color-music);
+    border-color: var(--color-music);
 }
 
-.program-setting button:hover{
+.program-setting.what .btn-primary:hover{
     background-color: var(--color-link-hover);
+    border-color: var(--color-link-hover);
+}
+
+.program-setting.what .btn-outline-primary.film{
+    color: var(--color-film);
+    border-color-color: var(--color-film);
+}
+
+.program-setting.what .btn-outline-primary.stage{
+    color: var(--color-stage);
+    border-color: var(--color-stage);
+}
+
+.program-setting.what .btn-outline-primary.music{
+    color: var(--color-music);
+    border-color: var(--color-music);
+}
+
+.program-setting.what .btn-outline-primary:hover{
+    color: var(--color-link-hover);
+    border-color: var(--color-link-hover);
+    background-color: #fff;
 }
 
 /* text of switch */
