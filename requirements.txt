@@ -1,6 +1,9 @@
+SQLAlchemy
+arrow
 plaster_pastedeploy
 pyramid
 pyramid_chameleon
 pyramid_debugtoolbar
+setuptools
+sqlalchemy_utils
 waitress
-arrow

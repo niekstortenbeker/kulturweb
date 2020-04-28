@@ -65,42 +65,42 @@ a:active {
     background: var(--color-link-hover);
 }
 
-.program-setting.what .btn-primary.film{
+.program-setting.category .btn-primary.film{
     background-color: var(--color-film);
     border-color: var(--color-film);
 }
 
-.program-setting.what .btn-primary.stage{
+.program-setting.category .btn-primary.stage{
     background-color: var(--color-stage);
     border-color: var(--color-stage);
 }
 
-.program-setting.what .btn-primary.music{
+.program-setting.category .btn-primary.music{
     background-color: var(--color-music);
     border-color: var(--color-music);
 }
 
-.program-setting.what .btn-primary:hover{
+.program-setting.category .btn-primary:hover{
     background-color: var(--color-link-hover);
     border-color: var(--color-link-hover);
 }
 
-.program-setting.what .btn-outline-primary.film{
+.program-setting.category .btn-outline-primary.film{
     color: var(--color-film);
     border-color-color: var(--color-film);
 }
 
-.program-setting.what .btn-outline-primary.stage{
+.program-setting.category .btn-outline-primary.stage{
     color: var(--color-stage);
     border-color: var(--color-stage);
 }
 
-.program-setting.what .btn-outline-primary.music{
+.program-setting.category .btn-outline-primary.music{
     color: var(--color-music);
     border-color: var(--color-music);
 }
 
-.program-setting.what .btn-outline-primary:hover{
+.program-setting.category .btn-outline-primary:hover{
     color: var(--color-link-hover);
     border-color: var(--color-link-hover);
     background-color: #fff;
