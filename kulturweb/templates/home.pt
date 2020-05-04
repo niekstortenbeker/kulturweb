@@ -22,7 +22,12 @@
                            data-toggle="dropdown" href="#"
                            role="button"
                            aria-haspopup="true"
-                           aria-expanded="false">${time_span}</a>
+                           aria-expanded="false">
+                            <span tal:condition="time_span == 'heute'">Heute</span>
+                            <span tal:condition="time_span == 'morgen'">Morgen</span>
+                            <span tal:condition="time_span == 'uebermorgen'">Übermorgen</span>
+                            <span tal:condition="time_span == 'woche'">Diese Woche</span>
+                        </a>
                         <div class="dropdown-menu" style="">
                           <a tal:condition="time_span != 'heute'" class="dropdown-item" href="/${category}/wann=heute+synchronisierter=${dubbed}#settings">Heute</a>
                           <a tal:condition="time_span != 'morgen'" class="dropdown-item" href="/${category}/wann=morgen+synchronisierter=${dubbed}#settings">Morgen</a>
