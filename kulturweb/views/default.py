@@ -4,7 +4,7 @@ from pyramid.view import view_config
 
 
 @view_config(route_name="home", renderer="kulturweb:templates/home.pt")
-def home_index(request: Request):
+def home(request: Request):
     vm = HomeViewModel(request)
     return vm.to_dict()
 
@@ -14,3 +14,4 @@ def home_index(request: Request):
 def filter_shows(request: Request):
     vm = FilterViewModel(request)
     return vm.to_dict()
+    # TODO maybe do try except here https://docs.pylonsproject.org/projects/pyramid/en/latest/tutorials/wiki2/basiclayout.html#view-declarations-via-the-views-package

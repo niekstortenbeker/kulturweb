@@ -60,29 +60,29 @@
 
             <div class="col-sm-auto">
                 <div class="show" tal:repeat="s shows">
-                    <div tal:condition="s.day"><h2>${s.day}</h2></div>
+                    <div tal:condition="type(s) == str"><h2>${s}</h2></div>
 
-                    <table tal:condition="not s.day" class="show-info">
+                    <table tal:condition="type(s) != str" class="show-info">
                         <tr>
                             <td>
                                 <span class="time">${s.time}</span>
                             </td>
                             <td>
-                                <span tal:condition="s.type == 'film'" class="location film">
+                                <span tal:condition="s.category == 'cinema'" class="location film">
                                     <mark>${s.location}</mark>
                                 </span>
-                                <span tal:condition="s.type == 'stage'" class="location stage">
+                                <span tal:condition="s.category == 'stage'" class="location stage">
                                     <mark>${s.location}</mark></span>
-                                <span tal:condition="s.type == 'music'" class="location music">
+                                <span tal:condition="s.category == 'music'" class="location music">
                                     <mark>${s.location}</mark></span>
-                                <span tal:condition="s.type == 'film'" class="title">
-                                    <a class="film" href="${s.url}">${s.title}</a>
+                                <span tal:condition="s.category == 'cinema'" class="title">
+                                    <a class="film" href="${s.url_info}">${s.title}</a>
                                 </span>
-                                <span tal:condition="s.type == 'stage'" class="title">
-                                    <a class="stage" href="${s.url}">${s.title}</a>
+                                <span tal:condition="s.category == 'stage'" class="title">
+                                    <a class="stage" href="${s.url_info}">${s.title}</a>
                                 </span>
-                                <span tal:condition="s.type == 'music'" class="title">
-                                    <a class="music" href="${s.url}">${s.title}</a>
+                                <span tal:condition="s.category == 'music'" class="title">
+                                    <a class="music" href="${s.url_info}">${s.title}</a>
                                 </span>
                             </td>
                         </tr>
@@ -99,7 +99,7 @@
 
         </div>
     </div>
-<!--  {'day': 'Monday 02-03', 'location': '', 'time': '', 'title': '', 'url': '', 'description': ''},-->
+<!--  {'day': 'Monday 02-03', 'location': '', 'time': '', 'title': '', 'url_info': '', 'description': ''},-->
 
 </div>
 </div>

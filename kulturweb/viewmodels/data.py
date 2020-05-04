@@ -1,65 +1,71 @@
-from typing import List
+from typing import List, Tuple, Union
 
 import arrow
-from kulturweb.data.dbsession import DbSession, UninitializedDatabaseError
-from kulturweb.data.show import Show
+import kultur
+from kultur.data.show import Show
 
 Arrow = arrow.Arrow
 
 
-def get_shows(time_span, location, category, dubbed):
-    shows = ShowsGetter(time_span, location, category, dubbed)
-    return shows.get()
+def get_shows(time_span: str, category: str, dubbed: str) -> List[Union[Show, str]]:
+    start, stop = _start_and_stop_times(time_span)
+    category = _translate_category(category)
+    dubbed = _translate_dubbed(dubbed)
+    shows = kultur.get_shows(start, stop, category, dubbed)
+    return _insert_days(shows)
 
 
-class ShowsGetter:
-    def __init__(self, time_span, location, category, dubbed):
-        if time_span not in ["heute", "morgen", "uebermorgen", "woche"]:
-            raise ValueError("not an accepted time span")
-        if category not in ["alle", "kino", "buehne", "musik"]:
-            raise ValueError("not a valid category")
-        if dubbed not in ["ja", "nein"]:
-            raise ValueError('only "ja" or "nein" is accepted')
-        if not DbSession.factory:
-            raise UninitializedDatabaseError
+def _insert_days(shows: List[Show]) -> List[Union[Show, str]]:
+    new_shows = []
+    day = ""
+    for show in shows:
+        if show.day != day:
+            day = show.day
+            new_shows.append(day)
+            new_shows.append(show)
+        else:
+            new_shows.append(show)
+    return new_shows
 
-        self.time_span = time_span
-        self.location = location
-        self.category = category
-        self.dubbed = True if dubbed == "ja" else False
-        self._session = DbSession.factory()
 
-    def get(self):
-        if self.category == "alle":
-            pass
-        self.query_program_category()
-        # TODO
-        return None
+def _translate_dubbed(dubbed: str) -> bool:
+    translate = {"ja": True, "nein": False}
 
-    def query_program_category(self) -> List[Show]:
-        return (
-            self._session.query(Show)
-            .filter_by(category=self.category)
-            .filter_by(dubbed=self.dubbed)
-            .filter(Show.date_time.between(*self._start_and_stop()))
-            .order_by(Show.date_time)
-            .all()
-        )
+    if type(dubbed) != str:
+        raise TypeError("only str accepted")
+    if dubbed not in translate.keys():
+        raise ValueError(f'"Only {translate.keys()} accepted')
 
-    def _start_and_stop(self) -> List[Arrow]:
-        times = {
-            "heute": [arrow.now("Europe/Berlin"), _arrow_shift_days_from_today(1)],
-            "morgen": [
-                _arrow_shift_days_from_today(1),
-                _arrow_shift_days_from_today(2),
-            ],
-            "uebermorgen": [
-                _arrow_shift_days_from_today(2),
-                _arrow_shift_days_from_today(3),
-            ],
-            "woche": [arrow.now("Europe/Berlin"), _arrow_shift_days_from_today(7)],
-        }
-        return times[self.time_span]
+    return translate[dubbed]
+
+
+def _translate_category(category: str) -> str:
+    categories = {"alle": "all", "kino": "cinema", "buehne": "stage", "musik": "music"}
+
+    if type(category) != str:
+        raise TypeError("Only str accepted")
+    if category not in categories.keys():
+        raise ValueError(f'"Only these categories accepted: {list(categories.keys())}')
+
+    return categories[category]
+
+
+def _start_and_stop_times(time_span: str) -> Tuple[Arrow, Arrow]:
+    times = {
+        "heute": (arrow.now("Europe/Berlin"), _arrow_shift_days_from_today(1)),
+        "morgen": (_arrow_shift_days_from_today(1), _arrow_shift_days_from_today(2),),
+        "uebermorgen": (
+            _arrow_shift_days_from_today(2),
+            _arrow_shift_days_from_today(3),
+        ),
+        "woche": (arrow.now("Europe/Berlin"), _arrow_shift_days_from_today(7)),
+    }
+    if type(time_span) != str:
+        raise TypeError("Only accepts strings")
+    if time_span not in times.keys():
+        raise ValueError(f'"Only accepts these categories: {list(times.keys())}')
+
+    return times[time_span]
 
 
 def _arrow_shift_days_from_today(days: int) -> Arrow:

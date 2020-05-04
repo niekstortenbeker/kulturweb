@@ -8,5 +8,7 @@ def includeme(config):
     # filter options
     # TODO also add only /kino etc.
     # http://localhost:6543/kino/wann=heute+synchronisierter=ja
-    config.add_route("filter", "/{what}/wann={when}+synchronisierter={dubbed}")
-    config.add_route("filter/", "/{what}/wann={when}+synchronisierter={dubbed}/")
+    config.add_route("filter", "/{category}/wann={time_span}+synchronisierter={dubbed}")
+    config.add_route(
+        "filter/", "/{category}/wann={time_span}+synchronisierter={dubbed}/"
+    )
