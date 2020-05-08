@@ -8,14 +8,13 @@ Arrow = arrow.Arrow
 
 
 def get_shows(
-    time_span: str, category: str, dubbed: str, location: str = ""
+    time_span: str, category: str, dubbed: str, location: str
 ) -> List[Union[Show, str]]:
     start, stop = _start_and_stop_times(time_span)
     category = _translate_category(category)
+    location = _translate_location(location)
     dubbed = _translate_dubbed(dubbed)
-    # location = _translate_location(location)
-    shows = kultur.get_shows(start, stop, category, dubbed)
-    print(len(shows))
+    shows = kultur.get_shows(start, stop, category, dubbed, location)
     return _insert_days(shows)
 
 
@@ -30,12 +29,6 @@ def _insert_days(shows: List[Show]) -> List[Union[Show, str]]:
         else:
             new_shows.append(show)
     return new_shows
-
-
-# def _translate_location(location):
-#     translate = {"schauburg": 'Schauburg', "gondel": 'Gondel', 'atlantis': ''}
-#     [,  'Atlantis', 'Cinema Ostertor', 'City 46', 'Theater Bremen', 'Schwankhalle', 'Glocke',
-#      'Kukoon']
 
 
 def _translate_dubbed(dubbed: str) -> bool:
@@ -58,6 +51,20 @@ def _translate_category(category: str) -> str:
         raise ValueError(f'"Only these categories accepted: {list(categories.keys())}')
 
     return categories[category]
+
+
+def _translate_location(location: str) -> str:
+    locations = kultur.get_location_names()
+
+    if location in ["", "alle"]:
+        return ""
+
+    if type(location) != str:
+        raise TypeError("Only str accepted")
+    if location not in locations.keys():
+        raise ValueError(f'"Only these locations accepted: {list(locations.keys())}')
+
+    return locations[location]
 
 
 def _start_and_stop_times(time_span: str) -> Tuple[Arrow, Arrow]:

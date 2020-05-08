@@ -12,8 +12,12 @@ class HomeViewModel(ViewModelBase):
         self.category: str = "alle"
         self.time_span: str = "heute"
         self.dubbed: str = "nein"
+        self.location: str = "alle"
         self.shows: List = get_shows(
-            time_span=self.time_span, category="alle", dubbed="nein"
+            time_span=self.time_span,
+            category=self.category,
+            dubbed=self.dubbed,
+            location=self.location,
         )
 
 
@@ -23,6 +27,23 @@ class FilterViewModel(ViewModelBase):
         self.category: str = request.matchdict.get("category")
         self.time_span: str = request.matchdict.get("time_span")
         self.dubbed: str = request.matchdict.get("dubbed")
+        self.location: str = request.matchdict.get("location")
         self.shows: List = get_shows(
-            time_span=self.time_span, category=self.category, dubbed=self.dubbed,
+            time_span=self.time_span,
+            category=self.category,
+            dubbed=self.dubbed,
+            location=self.location,
         )
+
+
+# class LocationViewModel(ViewModelBase):
+#     def __init__(self, request: Request):
+#         super().__init__(request)
+#         self.category: str = request.matchdict.get("category")
+#         self.time_span: str = request.matchdict.get("time_span")
+#         self.dubbed: str = request.matchdict.get("dubbed")
+#         self.location: str = request.matchdict.get("location")
+#         self.shows: List = get_shows(
+#             time_span=self.time_span, category=self.category, dubbed=self.dubbed,
+#             location=self.location
+#         )

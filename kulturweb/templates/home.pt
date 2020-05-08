@@ -18,38 +18,38 @@
                             <span tal:condition="time_span == 'woche'">Diese Woche</span>
                         </a>
                         <div class="dropdown-menu" style="">
-                          <a tal:condition="time_span != 'heute'" class="dropdown-item" href="/${category}/wann=heute+synchronisierter=${dubbed}#settings">Heute</a>
-                          <a tal:condition="time_span != 'morgen'" class="dropdown-item" href="/${category}/wann=morgen+synchronisierter=${dubbed}#settings">Morgen</a>
-                          <a tal:condition="time_span != 'uebermorgen'" class="dropdown-item" href="/${category}/wann=uebermorgen+synchronisierter=${dubbed}#settings">Übermorgen</a>
-                          <a tal:condition="time_span != 'woche'" class="dropdown-item" href="/${category}/wann=woche+synchronisierter=${dubbed}#settings">Diese Woche</a>
+                          <a tal:condition="time_span != 'heute'" class="dropdown-item" href="/${category}/${location}/wann=heute+synchronisierter=${dubbed}#settings">Heute</a>
+                          <a tal:condition="time_span != 'morgen'" class="dropdown-item" href="/${category}/${location}/wann=morgen+synchronisierter=${dubbed}#settings">Morgen</a>
+                          <a tal:condition="time_span != 'uebermorgen'" class="dropdown-item" href="/${category}/${location}/wann=uebermorgen+synchronisierter=${dubbed}#settings">Übermorgen</a>
+                          <a tal:condition="time_span != 'woche'" class="dropdown-item" href="/${category}/${location}/wann=woche+synchronisierter=${dubbed}#settings">Diese Woche</a>
                         </div>
                       </li>
                     </ul>
                 </div>
 
                 <div class="col-sm-auto align-self-center program-setting category my-2">
-                    <a tal:condition="category == 'alle'" type="button" class="btn btn-primary ml-1 film" href="/kino/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
-                    <a tal:condition="category == 'kino'" type="button" class="btn btn-primary ml-1 film" href="/alle/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
-                    <a tal:condition="category not in ['kino', 'alle']" type="button" class="btn btn-outline-primary ml-1 film" href="/kino/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
-                    <a tal:condition="category == 'alle'" type="button" class="btn btn-primary ml-1 stage" href="/buehne/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
-                    <a tal:condition="category == 'buehne'" type="button" class="btn btn-primary ml-1 stage" href="/alle/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
-                    <a tal:condition="category not in ['buehne', 'alle']" type="button" class="btn btn-outline-primary ml-1 stage" href="/buehne/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
-                    <a tal:condition="category == 'alle'" type="button" class="btn btn-primary ml-1 music" href="/musik/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
-                    <a tal:condition="category == 'musik'" type="button" class="btn btn-primary ml-1 music" href="/alle/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
-                    <a tal:condition="category not in ['musik', 'alle']" type="button" class="btn btn-outline-primary ml-1 music" href="/musik/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
+                    <a tal:condition="category == 'alle'" type="button" class="btn btn-primary ml-1 film" href="/kino/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
+                    <a tal:condition="category == 'kino'" type="button" class="btn btn-primary ml-1 film" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
+                    <a tal:condition="category not in ['kino', 'alle']" type="button" class="btn btn-outline-primary ml-1 film" href="/kino/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
+                    <a tal:condition="category == 'alle'" type="button" class="btn btn-primary ml-1 stage" href="/buehne/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
+                    <a tal:condition="category == 'buehne'" type="button" class="btn btn-primary ml-1 stage" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
+                    <a tal:condition="category not in ['buehne', 'alle']" type="button" class="btn btn-outline-primary ml-1 stage" href="/buehne/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
+                    <a tal:condition="category == 'alle'" type="button" class="btn btn-primary ml-1 music" href="/musik/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
+                    <a tal:condition="category == 'musik'" type="button" class="btn btn-primary ml-1 music" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
+                    <a tal:condition="category not in ['musik', 'alle']" type="button" class="btn btn-outline-primary ml-1 music" href="/musik/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
                 </div>
 
                 <div class="col-sm-auto align-self-center text-center my-2">
                         <div class="dubbed" tal:condition="dubbed == 'ja'">
                             <div class="custom-control custom-switch dubbed-switch">
-                                <input type="checkbox" class="custom-control-input" id="dubbedSwitchOn" checked onclick="window.location.href = '/${category}/wann=${time_span}+synchronisierter=nein#settings';">
+                                <input type="checkbox" class="custom-control-input" id="dubbedSwitchOn" checked onclick="window.location.href = '/${category}/${location}/wann=${time_span}+synchronisierter=nein#settings';">
                                 <label class="custom-control-label dubbed-on" for="dubbedSwitchOn">synchronisierter Filme</label>
                                 <img class="info" id="info" src="/static/img/info_dark.svg" data-toggle="tooltip" data-placement="bottom" title="click to exlude dubbed movies. Note: movies are only guessed to be dubbed or not" />
                             </div>
                         </div>
                     <div class="dubbed" tal:condition="dubbed == 'nein'">
                         <div class="custom-control custom-switch dubbed-switch">
-                            <input type="checkbox" class="custom-control-input" id="dubbedSwitchOff" onclick="window.location.href = '/${category}/wann=${time_span}+synchronisierter=ja#settings';">
+                            <input type="checkbox" class="custom-control-input" id="dubbedSwitchOff" onclick="window.location.href = '/${category}/${location}/wann=${time_span}+synchronisierter=ja#settings';">
                             <label class="custom-control-label" for="dubbedSwitchOff">synchronisierter Filme </label>
                             <img class="info" id="info" src="/static/img/info_light.svg" data-toggle="tooltip" data-placement="bottom" title="click to include dubbed movies. Note: movies are only guessed to be dubbed or not"/>
                         </div>
@@ -75,13 +75,42 @@
                                 <span class="time">${s.time}</span>
                             </td>
                             <td>
-                                <span tal:condition="s.category == 'cinema'" class="location film">
-                                    <mark>${s.location}</mark>
+                                <span tal:condition="location == 'alle'">
+                                    <span tal:condition="s.category == 'cinema'" class="location film">
+                                        <a href="/${category}/${s.location_name_url}/wann=${time_span}+synchronisierter=${dubbed}#settings">
+                                            <mark>${s.location}</mark>
+                                        </a>
+                                    </span>
+                                    <span tal:condition="s.category == 'stage'" class="location stage">
+                                        <a href="/${category}/${s.location_name_url}/wann=${time_span}+synchronisierter=${dubbed}#settings">
+                                            <mark>${s.location}</mark>
+                                        </a>
+                                    </span>
+                                    <span tal:condition="s.category == 'music'" class="location music">
+                                        <a href="/${category}/${s.location_name_url}/wann=${time_span}+synchronisierter=${dubbed}#settings">
+                                            <mark>${s.location}</mark>
+                                        </a>
+                                    </span>
                                 </span>
-                                <span tal:condition="s.category == 'stage'" class="location stage">
-                                    <mark>${s.location}</mark></span>
-                                <span tal:condition="s.category == 'music'" class="location music">
-                                    <mark>${s.location}</mark></span>
+
+                                <span tal:condition="location != 'alle'">
+                                    <span tal:condition="s.category == 'cinema'" class="location film">
+                                        <a href="/${category}/alle/wann=${time_span}+synchronisierter=${dubbed}#settings">
+                                            <mark>${s.location}</mark>
+                                        </a>
+                                    </span>
+                                    <span tal:condition="s.category == 'stage'" class="location stage">
+                                        <a href="/${category}/alle/wann=${time_span}+synchronisierter=${dubbed}#settings">
+                                            <mark>${s.location}</mark>
+                                        </a>
+                                    </span>
+                                    <span tal:condition="s.category == 'music'" class="location music">
+                                        <a href="/${category}/alle/wann=${time_span}+synchronisierter=${dubbed}#settings">
+                                            <mark>${s.location}</mark>
+                                        </a>
+                                    </span>
+                                </span>
+
                                 <span tal:condition="s.category == 'cinema'" class="title">
                                     <a class="film" href="${s.url_info}">${s.title}</a>
                                 </span>
