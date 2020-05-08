@@ -70,6 +70,10 @@ a:active {
 
 /* time span setup */
 
+.time-span {
+    min-width: 160px;
+}
+
 .program-setting .nav-link{
     padding: 0.3rem 0.3rem;
 }

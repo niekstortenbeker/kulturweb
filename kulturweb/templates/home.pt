@@ -4,14 +4,10 @@
     <div class="program-settings"  id="settings">
         <div class="container-fluid">
             <div class="row justify-content-sm-center">
-                <div class="col-sm-auto align-self-center program-setting my-2">
+                <div class="col-sm-auto align-self-center program-setting my-2 time-span">
                     <ul class="nav nav-pills">
                       <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle"
-                           data-toggle="dropdown" href="#"
-                           role="button"
-                           aria-haspopup="true"
-                           aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                             <span tal:condition="time_span == 'heute'">Heute</span>
                             <span tal:condition="time_span == 'morgen'">Morgen</span>
                             <span tal:condition="time_span == 'uebermorgen'">Übermorgen</span>
@@ -125,7 +121,7 @@
                         <tr>
                             <td></td>
                             <td>
-                                <div class="d-none d-md-block description" id="bla">${s.description}</div>
+                                <div class="d-none d-md-block description" id="bla">${s.description_start}</div>
                             </td>
                         </tr>
                     </table>
