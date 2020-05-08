@@ -1,21 +1,10 @@
 <div metal:use-macro="load: _layout.pt">
-<div metal:fill-slot="content">
-
-<div class="content">
-
-    <div class="hero">
-        <h1>
-            Kultur Programm Bremen
-        </h1>
-        <p class="lead">
-            Eine eigensinnige kulturelle Auswahl in Bremen
-        </p>
-    </div>
+<div class="content" metal:fill-slot="content">
 
     <div class="program-settings"  id="settings">
         <div class="container-fluid">
             <div class="row justify-content-sm-center">
-                <div class="col-sm-auto align-self-center program-setting">
+                <div class="col-sm-auto align-self-center program-setting my-2">
                     <ul class="nav nav-pills">
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle"
@@ -38,28 +27,41 @@
                     </ul>
                 </div>
 
-                <div class="col-sm-auto align-self-center program-setting category">
-                    <a tal:condition="category == 'alle'" type="button" class="btn btn-primary film" href="/kino/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
-                    <a tal:condition="category == 'kino'" type="button" class="btn btn-primary film" href="/alle/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
-                    <a tal:condition="category not in ['kino', 'alle']" type="button" class="btn btn-outline-primary film" href="/kino/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
-                    <a tal:condition="category == 'alle'" type="button" class="btn btn-primary stage" href="/buehne/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
-                    <a tal:condition="category == 'buehne'" type="button" class="btn btn-primary stage" href="/alle/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
-                    <a tal:condition="category not in ['buehne', 'alle']" type="button" class="btn btn-outline-primary stage" href="/buehne/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
-                    <a tal:condition="category == 'alle'" type="button" class="btn btn-primary music" href="/musik/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
-                    <a tal:condition="category == 'musik'" type="button" class="btn btn-primary music" href="/alle/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
-                    <a tal:condition="category not in ['musik', 'alle']" type="button" class="btn btn-outline-primary music" href="/musik/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
+                <div class="col-sm-auto align-self-center program-setting category my-2">
+                    <a tal:condition="category == 'alle'" type="button" class="btn btn-primary ml-1 film" href="/kino/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
+                    <a tal:condition="category == 'kino'" type="button" class="btn btn-primary ml-1 film" href="/alle/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
+                    <a tal:condition="category not in ['kino', 'alle']" type="button" class="btn btn-outline-primary ml-1 film" href="/kino/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
+                    <a tal:condition="category == 'alle'" type="button" class="btn btn-primary ml-1 stage" href="/buehne/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
+                    <a tal:condition="category == 'buehne'" type="button" class="btn btn-primary ml-1 stage" href="/alle/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
+                    <a tal:condition="category not in ['buehne', 'alle']" type="button" class="btn btn-outline-primary ml-1 stage" href="/buehne/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
+                    <a tal:condition="category == 'alle'" type="button" class="btn btn-primary ml-1 music" href="/musik/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
+                    <a tal:condition="category == 'musik'" type="button" class="btn btn-primary ml-1 music" href="/alle/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
+                    <a tal:condition="category not in ['musik', 'alle']" type="button" class="btn btn-outline-primary ml-1 music" href="/musik/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
                 </div>
 
-                <div class="col-sm-auto align-self-center program-setting">
-                    <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                        <label class="custom-control-label" for="customSwitch1">kein synchronisierter Filme</label>
+                <div class="col-sm-auto align-self-center text-center my-2">
+                        <div class="dubbed" tal:condition="dubbed == 'ja'">
+                            <div class="custom-control custom-switch dubbed-switch">
+                                <input type="checkbox" class="custom-control-input" id="dubbedSwitchOn" checked onclick="window.location.href = '/${category}/wann=${time_span}+synchronisierter=nein#settings';">
+                                <label class="custom-control-label dubbed-on" for="dubbedSwitchOn">synchronisierter Filme</label>
+                                <img class="info" id="info" src="/static/img/info_dark.svg" data-toggle="tooltip" data-placement="bottom" title="click to exlude dubbed movies. Note: movies are only guessed to be dubbed or not" />
+                            </div>
+                        </div>
+                    <div class="dubbed" tal:condition="dubbed == 'nein'">
+                        <div class="custom-control custom-switch dubbed-switch">
+                            <input type="checkbox" class="custom-control-input" id="dubbedSwitchOff" onclick="window.location.href = '/${category}/wann=${time_span}+synchronisierter=ja#settings';">
+                            <label class="custom-control-label" for="dubbedSwitchOff">synchronisierter Filme </label>
+                            <img class="info" id="info" src="/static/img/info_light.svg" data-toggle="tooltip" data-placement="bottom" title="click to include dubbed movies. Note: movies are only guessed to be dubbed or not"/>
+                        </div>
                     </div>
                 </div>
-                <!-- Default checked -->
             </div>
         </div>
     </div>
+
+
+
+
     <div class="container show-list">
         <div class="row justify-content-center">
 
@@ -94,7 +96,7 @@
                         <tr>
                             <td></td>
                             <td>
-                                <div class="d-none d-md-block desc">${s.description}</div>
+                                <div class="d-none d-md-block description" id="bla">${s.description}</div>
                             </td>
                         </tr>
                     </table>
@@ -104,12 +106,11 @@
 
         </div>
     </div>
-<!--  {'day': 'Monday 02-03', 'location': '', 'time': '', 'title': '', 'url_info': '', 'description': ''},-->
 
-</div>
 </div>
 
 <div metal:fill-slot="additional-css" tal:omit-tag>
     <!-- additional css from the page -->
+    <script src="${request.static_url('kulturweb:static/js/local.js')}"></script>
 </div>
 </div>

@@ -1,17 +1,35 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic");
+
 :root{
-    --color-link-hover: #B1B67D;
     --color-link-active: #282828;
     --color-text: #282828;
     --color-text-light-grey: #999999;
-    --color-film: #284E9F;
-    --color-stage: #9E288A;
-    --color-music: #715D20;
-    --color-navbar: #6EB1B9;
-    --color-hero: #59AABE;
+    --color-film: #008a93;
+    --color-stage: #937100;
+    --color-music: #930045;
+    --color-hero-dark: #008a93;
+    --color-hero-light: #d6a500;
+    --font-family-sans-serif: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
 }
 
-body {
-    color: var(--color-text);
+body{
+    margin: 0;
+    font-family:"Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-text);;
+    text-align: left;
+    background-color: #fff
+}
+
+h2, .h2 {
+    font-size: 2.5rem;
+}
+
+h4, .h4 {
+    font-size: 1.40625rem;
 }
 
 a {
@@ -19,35 +37,45 @@ a {
 }
 
 a:hover {
-    color: var(--color-link-hover);
+    color: black;
 }
 
 a:active {
     color: var(--color-text)!important;
 }
 
-.navbar-custom {
-    background-color: var(--color-navbar);
-    padding: 10px 30px;
-}
-
 .hero {
-    background-color: var(--color-hero);
     color: #fff;
-    padding: 30px 10px;
-    text-align: center;
+    background: linear-gradient(120deg, var(--color-hero-dark) 70%, var(--color-hero-light) 70%);
+    padding: 70px 10px 10px 10px;
+    min-height: 315px;  /* for page reloading */
+    /** text-align: center; **/
 }
 
+.content {
+    min-height: 500px;
+}
 /** program setup settings **/
 
 .program-settings {
-    padding: 25px 10px 0px 0px;
+    padding: 70px 0px 20px 0px;
 }
 
 .program-setting {
     text-align:center;
+    font-size: 1.1rem;
     margin-top: 5px;
     margin-bottom: 5px
+}
+
+/* time span setup */
+
+.program-setting .nav-link{
+    padding: 0.3rem 0.3rem;
+}
+
+.program-setting .dropdown-menu {
+    font-size: 1.1rem;
 }
 
 .program-setting .dropdown {
@@ -57,13 +85,24 @@ a:active {
 
 
 .program-setting .dropdown .dropdown-toggle[aria-expanded="true"] {
-    background: var(--color-link-hover);
+    background: var(--color-text-light-grey);
 }
 
 
 .program-setting .dropdown-item:hover{
-    background: var(--color-link-hover);
+    background: var(--color-text-light-grey);
+    color: #fff;
 }
+
+/* category buttons (general) */
+
+.program-setting.category .btn{
+    letter-spacing: 0.15rem;
+    padding: 0.25rem 0.25rem;
+    font-size: 1.1rem;
+}
+
+/* category buttons (on) */
 
 .program-setting.category .btn-primary.film{
     background-color: var(--color-film);
@@ -81,13 +120,20 @@ a:active {
 }
 
 .program-setting.category .btn-primary:hover{
-    background-color: var(--color-link-hover);
-    border-color: var(--color-link-hover);
+    filter: brightness(150%);
 }
+
+/* category buttons (off) */
 
 .program-setting.category .btn-outline-primary.film{
     color: var(--color-film);
-    border-color-color: var(--color-film);
+    border-color: var(--color-film);
+}
+
+.program-setting.category .btn-outline-primary.film:hover{
+    background-color: var(--color-film);
+    border-color: var(--color-film);
+    color: #fff;
 }
 
 .program-setting.category .btn-outline-primary.stage{
@@ -95,52 +141,68 @@ a:active {
     border-color: var(--color-stage);
 }
 
+.program-setting.category .btn-outline-primary.stage:hover{
+    background-color: var(--color-stage);
+    border-color: var(--color-stage);
+    color: #fff;
+}
+
+
 .program-setting.category .btn-outline-primary.music{
     color: var(--color-music);
     border-color: var(--color-music);
 }
 
-.program-setting.category .btn-outline-primary:hover{
-    color: var(--color-link-hover);
-    border-color: var(--color-link-hover);
-    background-color: #fff;
+.program-setting.category .btn-outline-primary.music:hover{
+    background-color: var(--color-music);
+    border-color: var(--color-music);
+    color: #fff;
+}
+
+
+/* dubbed switch */
+
+.dubbed {
+    min-width: 210px;
 }
 
 /* text of switch */
-.program-setting .custom-control-label{
+.dubbed-switch .custom-control-label{
     color: var(--color-text-light-grey);
+    padding-right: 0.3rem;
 }
 
-.program-setting .custom-control-label:hover{
-    color: var(--color-link-hover);
-}
-
-.program-setting .custom-control-label:active{
+.dubbed-switch .custom-control-label:active{
     color: var(--color-link-active);
 }
 
+.dubbed-switch .dubbed-on{
+    color: var(--color-text);
+}
+
+
 /* color knob on hover */
-.program-setting .custom-control-input:checked:hover ~ .custom-control-label::after,
-.program-setting .custom-control-input:hover ~ .custom-control-label::after {
-  background-color: var(--color-link-hover);
+.dubbed-switch .custom-control-input:checked:hover ~ .custom-control-label::after,
+.dubbed-switch .custom-control-input:hover ~ .custom-control-label::after {
+  background-color: var(--color-text);
 }
 /* color knob on click */
-.program-setting .custom-control-input:checked:active ~ .custom-control-label::after,
-.program-setting .custom-control-input:active ~ .custom-control-label::after {
-  background-color: var(--color-link-active);
-  border-color: var(--color-link-active);
+.dubbed-switch .custom-control-input:checked:active ~ .custom-control-label::after,
+.dubbed-switch .custom-control-input:active ~ .custom-control-label::after {
+  background-color: var(--color-text);
+  border-color: var(--color-text);
 }
-.program-setting .custom-control-input:active ~ .custom-control-label::before {
+.dubbed-switch .custom-control-input:active ~ .custom-control-label::before {
   background-color: #FFFFFF;
 }
 /* fill after clicking */
-.program-setting .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: var(--color-text-light-grey);
-  border-color: var(--color-text-light-grey);
+.dubbed-switch .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: var(--color-hero-dark);
+  border-color: var(--color-hero-dark);
 }
 
 /* knob after clicking */
-.program-setting .custom-control-input:checked ~ .custom-control-label::after {
+.dubbed-switch .custom-control-input:checked ~ .custom-control-label::after {
   background-color: var(--color-link-active);
   border: var(--color-link-active);
 }
@@ -148,7 +210,7 @@ a:active {
 /** show list **/
 
 .show-list .show{
-    padding: 5px;
+    padding: 15px 0px;
     max-width: 800px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -170,6 +232,7 @@ a:active {
 
 .show-list .show .location{
     margin-right: 5px;
+    text-transform: uppercase;
 }
 
 .show-list .show .location.film mark{
@@ -209,12 +272,12 @@ a:active {
 }
 
 .show-list .show .title a:hover {
-    color: var(--color-link-hover);
+    filter: brightness(150%);
 }
 
 /** show description **/
 
-.show-list .show .desc {
+.description {
     font-style: italic;
     font-weight: normal;
     font-size: 16px;
@@ -229,5 +292,5 @@ footer {
     padding: 30px;
     text-align: center;
     color: white;
-    background-color: var(--color-navbar);
+    background: linear-gradient(120deg,  var(--color-hero-light) 20%, var(--color-hero-dark) 20%);
 }

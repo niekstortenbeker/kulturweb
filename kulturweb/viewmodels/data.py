@@ -7,11 +7,15 @@ from kultur.data.show import Show
 Arrow = arrow.Arrow
 
 
-def get_shows(time_span: str, category: str, dubbed: str) -> List[Union[Show, str]]:
+def get_shows(
+    time_span: str, category: str, dubbed: str, location: str = ""
+) -> List[Union[Show, str]]:
     start, stop = _start_and_stop_times(time_span)
     category = _translate_category(category)
     dubbed = _translate_dubbed(dubbed)
+    # location = _translate_location(location)
     shows = kultur.get_shows(start, stop, category, dubbed)
+    print(len(shows))
     return _insert_days(shows)
 
 
@@ -26,6 +30,12 @@ def _insert_days(shows: List[Show]) -> List[Union[Show, str]]:
         else:
             new_shows.append(show)
     return new_shows
+
+
+# def _translate_location(location):
+#     translate = {"schauburg": 'Schauburg', "gondel": 'Gondel', 'atlantis': ''}
+#     [,  'Atlantis', 'Cinema Ostertor', 'City 46', 'Theater Bremen', 'Schwankhalle', 'Glocke',
+#      'Kukoon']
 
 
 def _translate_dubbed(dubbed: str) -> bool:
