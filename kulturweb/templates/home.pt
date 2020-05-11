@@ -118,10 +118,20 @@
                                 </span>
                             </td>
                         </tr>
-                        <tr>
+                        <tr tal:condition="s.description">
                             <td></td>
                             <td>
-                                <div class="d-none d-md-block description" id="bla">${s.description_start}</div>
+                                <p>
+                                    <span class="d-none d-md-block description">
+                                            ${s.description_start}
+                                        <span tal:condition="s.description_end">
+                                            <span id=${s.id} class="fulltext">
+                                                    ${s.description_end}
+                                            </span>
+                                            <button aria-expanded="false" aria-controls="${s.id}" class="toggle-content" hidden><span class="text">mehr anzeigen</span></button>
+                                        </span>
+                                    </span>
+                                </p>
                             </td>
                         </tr>
                     </table>
@@ -134,8 +144,7 @@
 
 </div>
 
-<div metal:fill-slot="additional-css" tal:omit-tag>
-    <!-- additional css from the page -->
+<div metal:fill-slot="additional-js" tal:omit-tag>
     <script src="${request.static_url('kulturweb:static/js/local.js')}"></script>
 </div>
 </div>

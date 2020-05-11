@@ -46,7 +46,7 @@ a:active {
 
 .hero {
     color: #fff;
-    background: linear-gradient(120deg, var(--color-hero-dark) 70%, var(--color-hero-light) 70%);
+    background: linear-gradient(120deg, var(--color-hero-dark) 20%, var(--color-hero-light) 90%);
     padding: 70px 10px 10px 10px;
     min-height: 315px;  /* for page reloading */
     /** text-align: center; **/
@@ -296,6 +296,14 @@ a:active {
     margin-top: 2px;
 }
 
+.description .toggle-content {
+    border: none;
+    background-color: inherit;
+    text-decoration: underline;
+    font-style: italic;
+    color: var(--color-text);
+    padding: 0;
+}
 
 
 footer {
@@ -304,5 +312,5 @@ footer {
     padding: 30px;
     text-align: center;
     color: white;
-    background: linear-gradient(120deg,  var(--color-hero-light) 20%, var(--color-hero-dark) 20%);
+    background: linear-gradient(120deg,  var(--color-hero-light) 10%, var(--color-hero-dark) 80%);
 }
