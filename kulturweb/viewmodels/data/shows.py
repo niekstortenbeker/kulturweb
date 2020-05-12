@@ -10,7 +10,7 @@ Arrow = arrow.Arrow
 def get_shows(
     time_span: str, category: str, dubbed: str, location: str
 ) -> List[Union[Show, str]]:
-    start, stop = _start_and_stop_times(time_span)
+    start, stop = _translate_time_span(time_span)
     category = _translate_category(category)
     location = _translate_location(location)
     dubbed = _translate_dubbed(dubbed)
@@ -67,27 +67,64 @@ def _translate_location(location: str) -> str:
     return locations[location]
 
 
-def _start_and_stop_times(time_span: str) -> Tuple[Arrow, Arrow]:
-    times = {
-        "heute": (arrow.now("Europe/Berlin"), _arrow_shift_days_from_today(1)),
-        "morgen": (_arrow_shift_days_from_today(1), _arrow_shift_days_from_today(2),),
-        "uebermorgen": (
-            _arrow_shift_days_from_today(2),
-            _arrow_shift_days_from_today(3),
-        ),
-        "woche": (arrow.now("Europe/Berlin"), _arrow_shift_days_from_today(7)),
-    }
+def _translate_time_span(time_span: str) -> Tuple[Arrow, Arrow]:
+    allowed = [
+        "heute",
+        "morgen",
+        "montag",
+        "dienstag",
+        "mittwoch",
+        "donnerstag",
+        "freitag",
+        "samstag",
+        "sonntag",
+    ]
+
     if type(time_span) != str:
         raise TypeError("Only accepts strings")
-    if time_span not in times.keys():
-        raise ValueError(f'"Only accepts these categories: {list(times.keys())}')
+    if time_span not in allowed:
+        raise ValueError(f'"Only accepts these categories: {allowed}')
 
-    return times[time_span]
+    if time_span == "heute":
+        return arrow.now("Europe/Berlin"), _normalize_shift_arrow(1)
+    elif time_span == "morgen":
+        return _normalize_shift_arrow(1), _normalize_shift_arrow(2)
+
+    days_shift = _count_days_shift(time_span)
+    if days_shift == 0:
+        return arrow.now("Europe/Berlin"), _normalize_shift_arrow(1)
+    else:
+        return (
+            _normalize_shift_arrow(days_shift),
+            _normalize_shift_arrow(days_shift + 1),
+        )
 
 
-def _arrow_shift_days_from_today(days: int) -> Arrow:
+def _count_days_shift(time_span: str) -> int:
+    days = [
+        "montag",
+        "dienstag",
+        "mittwoch",
+        "donnerstag",
+        "freitag",
+        "samstag",
+        "sonntag",
+        "montag",
+        "dienstag",
+        "mittwoch",
+        "donnerstag",
+        "freitag",
+        "samstag",
+        "sonntag",
+    ]
+    today = arrow.now("Europe/Berlin").format("dddd", locale="de").lower()
+    idx_today = days.index(today)
+    return days.index(time_span, idx_today) - idx_today
+
+
+def _normalize_shift_arrow(days_shift: int) -> Arrow:
     return (
         arrow.now("Europe/Berlin")
-        .shift(days=days)
+        .shift(days=days_shift)
         .replace(hour=0, minute=0, second=0, microsecond=0)
     )

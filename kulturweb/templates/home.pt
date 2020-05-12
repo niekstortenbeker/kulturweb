@@ -8,16 +8,10 @@
                     <ul class="nav nav-pills">
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            <span tal:condition="time_span == 'heute'">Heute</span>
-                            <span tal:condition="time_span == 'morgen'">Morgen</span>
-                            <span tal:condition="time_span == 'uebermorgen'">Übermorgen</span>
-                            <span tal:condition="time_span == 'woche'">Diese Woche</span>
+                            <span>${time_span.title()}</span>
                         </a>
                         <div class="dropdown-menu" style="">
-                          <a tal:condition="time_span != 'heute'" class="dropdown-item" href="/${category}/${location}/wann=heute+synchronisierter=${dubbed}#settings">Heute</a>
-                          <a tal:condition="time_span != 'morgen'" class="dropdown-item" href="/${category}/${location}/wann=morgen+synchronisierter=${dubbed}#settings">Morgen</a>
-                          <a tal:condition="time_span != 'uebermorgen'" class="dropdown-item" href="/${category}/${location}/wann=uebermorgen+synchronisierter=${dubbed}#settings">Übermorgen</a>
-                          <a tal:condition="time_span != 'woche'" class="dropdown-item" href="/${category}/${location}/wann=woche+synchronisierter=${dubbed}#settings">Diese Woche</a>
+                          <a tal:repeat="option time_span_options" class="dropdown-item" href="/${category}/${location}/wann=${option}+synchronisierter=${dubbed}#settings">${time_span_options[option]}</a>
                         </div>
                       </li>
                     </ul>
