@@ -1,78 +1,68 @@
-<!DOCTYPE html metal:define-macro="layout">
-<html lang="{{request.locale_name}}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kultur Program Bremen">
-    <meta name="author" content="Niek Stortenbeker">
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Eine eigensinnige Auswahl Bremer
+        Kulturangebote; mit Veranstaltungstermine für u.a. Theater Bremen, Schwankhalle,
+        City 46 und Bremer Filmkunst Theater">
+        <title>Kultur - Eine eigensinnige Auswahl Bremer Kulturangebote</title>
+        <link rel="icon" href="${request.static_url('kulturweb:static/img/favicon.png')}" />
+        <link rel="shortcut icon" href="${request.static_url('kulturweb:static/img/favicon.png')}" />
 
-    <title>Kultur</title>
+        <!--load jquery here otherwise loading issues-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- Custom styles for this scaffold -->
+        <link href="${request.static_url('kulturweb:static/css/site.css')}" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"
+                integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY"
+                crossorigin="anonymous"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"
+                integrity="sha384-f1r2UzjsxZ9T4V1f2zBO/evUqSEOpeaUUZcMTz1Up63bl4ruYnFYeM+BxI4NhyI0"
+                crossorigin="anonymous"></script>
+        <![endif]-->
 
-    <!--load jquery here otherwise loading issues-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <div metal:define-slot="additional-css"></div>
+    </head>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <!-- Custom styles for this scaffold -->
-    <link href="${request.static_url('kulturweb:static/css/site.css')}" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"
-            integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY"
-            crossorigin="anonymous"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"
-            integrity="sha384-f1r2UzjsxZ9T4V1f2zBO/evUqSEOpeaUUZcMTz1Up63bl4ruYnFYeM+BxI4NhyI0"
-            crossorigin="anonymous"></script>
-    <![endif]-->
-
-    <div metal:define-slot="additional-css"></div>
-
-  </head>
-
-  <body>
+    <body>
         <div class="hero">
-        <div class="container">
-            <div class="row justify-content-start">
-                <div class="col align-self-center">
-                    <a href="/">
-                        <img src="/static/img/logo.svg" class="img-fluid" alt="KULTUR BREMEN">
-                    </a>
+            <div class="container">
+                <div class="row justify-content-start">
+                    <div class="col align-self-center">
+                        <a href="/">
+                            <img src="/static/img/logo.svg" class="img-fluid" alt="KULTUR BREMEN">
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h4 class="text-right">Eine eigensinnige Auswahl Bremer Kulturangebote</h4>
+                <div class="row">
+                    <div class="col">
+                        <h4 class="text-right">Eine eigensinnige Auswahl Bremer Kulturangebote</h4>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-      <div id="page-content">
+        <div metal:define-slot="content">No content</div>
 
-            <div metal:define-slot="content">No content</div>
-
-            <footer>
-                <div class="copyright">
-                            Eine eigensinnige kulturelle Auswahl in Bremen<br>
-                            you will find a combined program here from several locations<br>
-                            the arthouse cinemas, some of the theaters and glocke.<br>
-                    <br>
-                    <a href="#">About</a>
-                </div>
-            </footer>
-
-        </div>
-
+        <footer>
+                        Eine eigensinnige kulturelle Auswahl in Bremen<br>
+                        you will find a combined program here from several locations<br>
+                        the arthouse cinemas, some of the theaters and glocke.<br>
+                <br>
+                <a href="#">About</a>
+        </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <div metal:define-slot="additional-js" tal:omit-tag></div>
-  </body>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <div metal:define-slot="additional-js" tal:omit-tag></div>
+    </body>
 </html>
