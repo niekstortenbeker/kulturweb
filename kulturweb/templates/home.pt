@@ -18,15 +18,15 @@
                 </div>
 
                 <div class="col-sm-auto align-self-center program-setting category my-2">
-                    <a tal:condition="category == 'alle'" type="button" class="btn btn-primary ml-1 film" href="/kino/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
-                    <a tal:condition="category == 'kino'" type="button" class="btn btn-primary ml-1 film" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
-                    <a tal:condition="category not in ['kino', 'alle']" type="button" class="btn btn-outline-primary ml-1 film" href="/kino/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
-                    <a tal:condition="category == 'alle'" type="button" class="btn btn-primary ml-1 stage" href="/buehne/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
-                    <a tal:condition="category == 'buehne'" type="button" class="btn btn-primary ml-1 stage" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
-                    <a tal:condition="category not in ['buehne', 'alle']" type="button" class="btn btn-outline-primary ml-1 stage" href="/buehne/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
-                    <a tal:condition="category == 'alle'" type="button" class="btn btn-primary ml-1 music" href="/musik/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
-                    <a tal:condition="category == 'musik'" type="button" class="btn btn-primary ml-1 music" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
-                    <a tal:condition="category not in ['musik', 'alle']" type="button" class="btn btn-outline-primary ml-1 music" href="/musik/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
+                    <a tal:condition="category == 'alle'" class="btn btn-primary ml-1 film" href="/kino/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
+                    <a tal:condition="category == 'kino'" class="btn btn-primary ml-1 film" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
+                    <a tal:condition="category not in ['kino', 'alle']" class="btn btn-outline-primary ml-1 film" href="/kino/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
+                    <a tal:condition="category == 'alle'" class="btn btn-primary ml-1 stage" href="/buehne/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
+                    <a tal:condition="category == 'buehne'" class="btn btn-primary ml-1 stage" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
+                    <a tal:condition="category not in ['buehne', 'alle']" class="btn btn-outline-primary ml-1 stage" href="/buehne/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
+                    <a tal:condition="category == 'alle'" class="btn btn-primary ml-1 music" href="/musik/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
+                    <a tal:condition="category == 'musik'" class="btn btn-primary ml-1 music" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
+                    <a tal:condition="category not in ['musik', 'alle']" class="btn btn-outline-primary ml-1 music" href="/musik/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
                 </div>
 
                 <div class="col-sm-auto align-self-center text-center my-2">
