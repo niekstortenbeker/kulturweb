@@ -1,4 +1,4 @@
-from kultur import init_database
+from kultur import init_fake_database
 from pyramid.config import Configurator
 
 
@@ -8,6 +8,6 @@ def main(global_config, **settings):
     with Configurator(settings=settings) as config:
         config.include("pyramid_chameleon")
         config.include(".routes")
-        init_database()
+        init_fake_database()
         config.scan()
     return config.make_wsgi_app()
