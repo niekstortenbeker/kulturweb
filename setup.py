@@ -3,10 +3,20 @@ import os
 from setuptools import find_packages, setup
 
 here = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(here, "README.txt")) as f:
-    README = f.read()
-with open(os.path.join(here, "CHANGES.txt")) as f:
-    CHANGES = f.read()
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+
+def read_version():
+    filename = os.path.join(os.path.dirname(__file__), "kulturweb", "__init__.py")
+    with open(filename, mode="r", encoding="utf-8") as fin:
+        for line in fin:
+            if line and line.strip() and line.startswith("__version__"):
+                return line.split("=")[1].strip().strip('"')
+
+    return "0.0.0.0"
+
 
 requires = [
     "plaster_pastedeploy",
@@ -26,9 +36,10 @@ tests_require = [
 
 setup(
     name="kulturweb",
-    version="0.0",
-    description="kulturweb",
-    long_description=README + "\n\n" + CHANGES,
+    version=read_version(),
+    description="a website with a selection of Bremen's cultural offerings",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     classifiers=[
         "Programming Language :: Python",
         "Framework :: Pyramid",
@@ -38,11 +49,11 @@ setup(
     author="Niek Stortenbeker",
     author_email="niek@kulturbremen.de",
     url="https://github.com/niekstortenbeker/kulturweb",
-    keywords="web pyramid pylons",
-    packages=find_packages(),
+    license="MIT",
+    packages=find_packages(exclude=("tests",)),
     include_package_data=True,
     zip_safe=False,
     extras_require={"testing": tests_require},
     install_requires=requires,
-    entry_points={"paste.app_factory": ["main = kulturweb:main",],},
+    entry_points={"paste.app_factory": ["main = kulturweb:main"]},
 )
