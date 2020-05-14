@@ -18,5 +18,4 @@ Data.fs*
 .sw?
 .DS_Store
 coverage
-test
-/kulturweb/database/
+.idea
