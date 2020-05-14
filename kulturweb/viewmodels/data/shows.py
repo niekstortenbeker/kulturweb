@@ -1,4 +1,4 @@
-from typing import List, Tuple, Union
+from typing import Dict, List, Tuple, Union
 
 import arrow
 import kultur
@@ -6,14 +6,34 @@ from kultur.data.show import Show
 
 Arrow = arrow.Arrow
 
+valid_dubbed = {"ja": True, "nein": False}
+valid_categories = {
+    "alle": "all",
+    "kino": "cinema",
+    "buehne": "stage",
+    "musik": "music",
+}
+valid_locations: Dict = kultur.get_location_names()
+valid_time_spans = [
+    "heute",
+    "morgen",
+    "montag",
+    "dienstag",
+    "mittwoch",
+    "donnerstag",
+    "freitag",
+    "samstag",
+    "sonntag",
+]
+
 
 def get_shows(
     time_span: str, category: str, dubbed: str, location: str
 ) -> List[Union[Show, str]]:
     start, stop = _translate_time_span(time_span)
-    category = _translate_category(category)
-    location = _translate_location(location)
-    dubbed = _translate_dubbed(dubbed)
+    category = valid_categories[category]
+    location = valid_locations[location]
+    dubbed = valid_dubbed[dubbed]
     shows = kultur.get_shows(start, stop, category, dubbed, location)
     return _insert_days(shows)
 
@@ -31,60 +51,7 @@ def _insert_days(shows: List[Show]) -> List[Union[Show, str]]:
     return new_shows
 
 
-def _translate_dubbed(dubbed: str) -> bool:
-    translate = {"ja": True, "nein": False}
-
-    if type(dubbed) != str:
-        raise TypeError("only str accepted")
-    if dubbed not in translate.keys():
-        raise ValueError(f'"Only {translate.keys()} accepted')
-
-    return translate[dubbed]
-
-
-def _translate_category(category: str) -> str:
-    categories = {"alle": "all", "kino": "cinema", "buehne": "stage", "musik": "music"}
-
-    if type(category) != str:
-        raise TypeError("Only str accepted")
-    if category not in categories.keys():
-        raise ValueError(f'"Only these categories accepted: {list(categories.keys())}')
-
-    return categories[category]
-
-
-def _translate_location(location: str) -> str:
-    locations = kultur.get_location_names()
-
-    if location in ["", "alle"]:
-        return ""
-
-    if type(location) != str:
-        raise TypeError("Only str accepted")
-    if location not in locations.keys():
-        raise ValueError(f'"Only these locations accepted: {list(locations.keys())}')
-
-    return locations[location]
-
-
 def _translate_time_span(time_span: str) -> Tuple[Arrow, Arrow]:
-    allowed = [
-        "heute",
-        "morgen",
-        "montag",
-        "dienstag",
-        "mittwoch",
-        "donnerstag",
-        "freitag",
-        "samstag",
-        "sonntag",
-    ]
-
-    if type(time_span) != str:
-        raise TypeError("Only accepts strings")
-    if time_span not in allowed:
-        raise ValueError(f'"Only accepts these categories: {allowed}')
-
     if time_span == "heute":
         return arrow.now("Europe/Berlin"), _normalize_shift_arrow(1)
     elif time_span == "morgen":

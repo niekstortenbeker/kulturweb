@@ -1,6 +1,12 @@
-from typing import List
+from typing import Dict, List
 
-from kulturweb.viewmodels.data.shows import get_shows
+from kulturweb.viewmodels.data.shows import (
+    get_shows,
+    valid_categories,
+    valid_dubbed,
+    valid_locations,
+    valid_time_spans,
+)
 from kulturweb.viewmodels.data.timespans import get_time_span_options
 from kulturweb.viewmodels.viewmodel_base import ViewModelBase
 from pyramid.request import Request
@@ -14,7 +20,7 @@ class HomeViewModel(ViewModelBase):
         self.time_span: str = "heute"
         self.dubbed: str = "nein"
         self.location: str = "alle"
-        self.time_span_options = get_time_span_options(self.time_span)
+        self.time_span_options: Dict = get_time_span_options(self.time_span)
         self.shows: List = get_shows(
             time_span=self.time_span,
             category=self.category,
@@ -31,7 +37,24 @@ class FilterViewModel(ViewModelBase):
         self.time_span: str = request.matchdict.get("time_span")
         self.dubbed: str = request.matchdict.get("dubbed")
         self.location: str = request.matchdict.get("location")
-        self.time_span_options = get_time_span_options(self.time_span)
+        self.time_span_options: Dict = get_time_span_options(self.time_span)
+        self.shows: List = []
+
+    def validate(self):
+        if self.category not in valid_categories:
+            self.error = "not a valid url"
+            return
+        if self.time_span not in valid_time_spans:
+            self.error = "not a valid url"
+            return
+        if self.dubbed not in valid_dubbed:
+            self.error = "not a valid url"
+            return
+        if self.location not in valid_locations:
+            self.error = "not a valid url"
+            return
+
+    def set_shows(self):
         self.shows: List = get_shows(
             time_span=self.time_span,
             category=self.category,

@@ -2,8 +2,18 @@
     <div metal:fill-slot="content">
 
         <div class="content">
-            <h1><span class="font-semi-bold">Pyramid</span> <span class="smaller">Starter project</span></h1>
-            <p class="lead"><span class="font-semi-bold">404</span> Page Not Found</p>
+            <br>
+            <br>
+            <br>
+            <h1 class="text-center display-3">PAGINA NIET GEVONDEN</h1>
+            <br>
+            <br>
+            <div class="text-center">
+                <img src="/static/img/donkey.svg" class="img-fluid" alt="sad donkey">
+            </div>
+            <br>
+            <p class="text-center lead">Helaas, we hebben niet gevonden wat je zoekt</p>
+            <p class="text-center lead"><a href="/"><mark>take me back home</mark></a></p>
         </div>
 
     </div>
