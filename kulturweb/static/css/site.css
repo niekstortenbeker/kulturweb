@@ -9,6 +9,7 @@
     --color-music: #930045;
     --color-hero-dark: #008a93;
     --color-hero-light: #d6a500;
+    --color-show-list: #f3ede9ff;
     --font-family-sans-serif: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
 }
@@ -45,11 +46,15 @@ a:active {
 }
 
 .hero {
-    color: #fff;
-    background: linear-gradient(120deg, var(--color-hero-dark) 20%, var(--color-hero-light) 90%);
-    padding: 70px 10px 10px 10px;
+    color: black;
+    background: linear-gradient(120deg, var(--color-hero-dark) 70%, #fff 70%);
+    padding: 50px 10px 20px 10px;
     min-height: 315px;  /* for page reloading */
     /** text-align: center; **/
+}
+
+.hero h4 {
+    padding-left: 10px;
 }
 
 .content {
@@ -58,7 +63,7 @@ a:active {
 /** program setup settings **/
 
 .program-settings {
-    padding: 70px 0px 20px 0px;
+    padding: 50px 0px 50px 0px;
 }
 
 .program-setting {
@@ -213,6 +218,10 @@ a:active {
 
 /** show list **/
 
+.show-list {
+    background-color: var(--color-show-list);
+}
+
 .show-list .show{
     padding: 15px 0px;
     max-width: 800px;
@@ -221,7 +230,7 @@ a:active {
 }
 
 .show-list h2{
-    padding: 15px 10px 0px 0px;
+    padding: 30px 10px 0px 0px;
 }
 
 /** show time **/
@@ -289,14 +298,18 @@ a:active {
 
 /** show description **/
 
+.show-info p {
+    margin-bottom: 0;
+}
+
 .description {
     font-style: italic;
     font-weight: normal;
     font-size: 16px;
-    margin-top: 2px;
+    margin-top: 4px;
 }
 
-.description .toggle-content {
+.description .toggle-content, .toggle-content-description {
     border: none;
     background-color: inherit;
     text-decoration: underline;
@@ -305,12 +318,13 @@ a:active {
     padding: 0;
 }
 
+.description .toggle-content-description {
+    margin-top: 7px;
+}
+
 
 footer {
     margin-top: 50px;
     width: 100%;
     padding: 30px;
-    text-align: center;
-    color: white;
-    background: linear-gradient(120deg,  var(--color-hero-light) 10%, var(--color-hero-dark) 80%);
 }

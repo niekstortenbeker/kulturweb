@@ -39,7 +39,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h4 class="text-right">Eine eigensinnige Auswahl Bremer Kulturangebote</h4>
+                        <h4>Eine eigensinnige Auswahl Bremer Kulturangebote</h4>
                     </div>
                 </div>
             </div>
@@ -48,11 +48,25 @@
         <div metal:define-slot="content">No content</div>
 
         <footer>
-                        Eine eigensinnige kulturelle Auswahl in Bremen<br>
-                        you will find a combined program here from several locations<br>
-                        the arthouse cinemas, some of the theaters and glocke.<br>
-                <br>
-                <a href="#">About</a>
+            <div class="container">
+                <div class="row justify-content-start">
+                    <div class="col align-self-center">
+                        <div class="text-center">
+                            <img src="/static/img/rooster.svg" class="img-fluid" alt="rooster">
+                        </div>
+                        <div class="align-bottom text-right">
+                            <a href="#">IMPRESSUM</a>
+                        </div>
+                    </div>
+<!--                    <div class="col-4 align-self-center">-->
+<!--                        <img src="/static/img/rooster.svg" class="img-fluid" alt="rooster">-->
+<!--                    </div>-->
+<!--                    <div class="col-8 align-self-center">-->
+<!--                        <br>-->
+<!--                        <a href="#">About</a>-->
+<!--                    </div>-->
+                </div>
+            </div>
         </footer>
 
     <!-- Bootstrap core JavaScript

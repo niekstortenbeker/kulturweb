@@ -52,7 +52,7 @@
 
 
 
-    <div class="container show-list">
+    <div class="container rounded show-list">
         <div class="row justify-content-center">
 
             <div class="col-sm-auto">
@@ -68,17 +68,17 @@
                                 <span tal:condition="location == 'alle'">
                                     <span tal:condition="s.category == 'cinema'" class="location film">
                                         <a href="/${category}/${s.location_name_url}/wann=${time_span}+synchronisierter=${dubbed}#settings">
-                                            <mark>${s.location}</mark>
+                                            <mark class="rounded">${s.location}</mark>
                                         </a>
                                     </span>
                                     <span tal:condition="s.category == 'stage'" class="location stage">
                                         <a href="/${category}/${s.location_name_url}/wann=${time_span}+synchronisierter=${dubbed}#settings">
-                                            <mark>${s.location}</mark>
+                                            <mark class="rounded">${s.location}</mark>
                                         </a>
                                     </span>
                                     <span tal:condition="s.category == 'music'" class="location music">
                                         <a href="/${category}/${s.location_name_url}/wann=${time_span}+synchronisierter=${dubbed}#settings">
-                                            <mark>${s.location}</mark>
+                                            <mark class="rounded">${s.location}</mark>
                                         </a>
                                     </span>
                                 </span>
@@ -86,17 +86,17 @@
                                 <span tal:condition="location != 'alle'">
                                     <span tal:condition="s.category == 'cinema'" class="location film">
                                         <a href="/${category}/alle/wann=${time_span}+synchronisierter=${dubbed}#settings">
-                                            <mark>${s.location}</mark>
+                                            <mark class="rounded">${s.location}</mark>
                                         </a>
                                     </span>
                                     <span tal:condition="s.category == 'stage'" class="location stage">
                                         <a href="/${category}/alle/wann=${time_span}+synchronisierter=${dubbed}#settings">
-                                            <mark>${s.location}</mark>
+                                            <mark class="rounded">${s.location}</mark>
                                         </a>
                                     </span>
                                     <span tal:condition="s.category == 'music'" class="location music">
                                         <a href="/${category}/alle/wann=${time_span}+synchronisierter=${dubbed}#settings">
-                                            <mark>${s.location}</mark>
+                                            <mark class="rounded">${s.location}</mark>
                                         </a>
                                     </span>
                                 </span>
@@ -123,6 +123,14 @@
                                                     ${s.description_end}
                                             </span>
                                             <button aria-expanded="false" aria-controls="${s.id}" class="toggle-content" hidden><span class="text">mehr anzeigen</span></button>
+                                        </span>
+                                    </span>
+                                    <span class="d-md-none description">
+                                        <span tal:condition="s.description">
+                                            <span id="${str(s.id) + 'm'}" class="fulltext">
+                                                    ${s.description}
+                                            </span>
+                                            <button aria-expanded="false" aria-controls="${str(s.id) + 'm'}" class="toggle-content-description" hidden><span class="text">Beschreibung</span></button>
                                         </span>
                                     </span>
                                 </p>
