@@ -56,6 +56,14 @@
         <div class="row justify-content-center">
 
             <div class="col-sm-auto">
+                <div tal:condition="not shows">
+                    <br>
+                    <br>
+                    <h3 >Leider keine Veranstaltungen mit diesen Filtern gefunden</h3>
+                    <br>
+                    <br>
+                    <p class="text-center lead"><a href="/"><mark>take me back home</mark></a></p>
+                </div>
                 <div class="show" tal:repeat="s shows">
                     <div tal:condition="type(s) == str"><h2>${s}</h2></div>
 
