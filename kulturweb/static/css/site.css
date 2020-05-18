@@ -25,14 +25,6 @@ body{
     background-color: #fff
 }
 
-h2, .h2 {
-    font-size: 2.5rem;
-}
-
-h4, .h4 {
-    font-size: 1.40625rem;
-}
-
 a {
     color: var(--color-text);
 }
@@ -45,17 +37,27 @@ a:active {
     color: var(--color-text)!important;
 }
 
+/* HERO */
+
 .hero {
-    color: black;
-    background: linear-gradient(120deg, var(--color-hero-dark) 70%, #fff 70%);
+    color: #fff;
+    background: linear-gradient(120deg, var(--color-hero-dark) 80%, #fff 80%);
     padding: 50px 10px 20px 10px;
     min-height: 315px;  /* for page reloading */
-    /** text-align: center; **/
+    margin-bottom: 50px;
 }
 
 .hero h4 {
     padding-left: 10px;
 }
+
+
+@media (max-width: 768px) {
+  .hero h4 {font-size:1.3rem;}
+}
+
+
+/* CONTENT */
 
 .content {
     min-height: 500px;
@@ -63,7 +65,7 @@ a:active {
 /** program setup settings **/
 
 .program-settings {
-    padding: 50px 0px 50px 0px;
+    padding: 0px 0px 50px 0px;
 }
 
 .program-setting {
@@ -220,6 +222,7 @@ a:active {
 
 .show-list {
     background-color: var(--color-show-list);
+    padding-bottom: 30px;
 }
 
 .show-list .show{
@@ -327,4 +330,19 @@ footer {
     margin-top: 50px;
     width: 100%;
     padding: 30px;
+}
+footer a {
+    padding-left: 15px;
+    font-size: 0.88rem;
+}
+
+footer img {
+    padding-bottom: 30px;
+}
+
+/* 404 */
+
+.donkey {
+    padding-top: 50px;
+    padding-bottom: 50px;
 }

@@ -2,16 +2,10 @@
     <div metal:fill-slot="content">
 
         <div class="content">
-            <br>
-            <br>
-            <br>
             <h1 class="text-center display-3">PAGINA NIET GEVONDEN</h1>
-            <br>
-            <br>
-            <div class="text-center">
+            <div class="text-center donkey">
                 <img src="/static/img/donkey.svg" class="img-fluid" alt="sad donkey">
             </div>
-            <br>
             <p class="text-center lead">Helaas, we hebben niet gevonden wat je zoekt</p>
             <p class="text-center lead"><a href="/"><mark>take me back home</mark></a></p>
         </div>
