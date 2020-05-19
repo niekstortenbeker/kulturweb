@@ -1,14 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic");
 
 :root{
-    --color-link-active: #282828;
     --color-text: #282828;
     --color-text-light-grey: #999999;
     --color-film: #008a93;
     --color-stage: #937100;
     --color-music: #930045;
     --color-hero-dark: #008a93;
-    --color-hero-light: #d6a500;
     --color-show-list: #f3ede9ff;
     --font-family-sans-serif: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
@@ -25,8 +23,8 @@ body{
     background-color: #fff
 }
 
-a {
-    color: var(--color-text);
+a{
+    color: #00a7b3;
 }
 
 a:hover {
@@ -44,7 +42,7 @@ a:active {
     background: linear-gradient(120deg, var(--color-hero-dark) 80%, #fff 80%);
     padding: 50px 10px 20px 10px;
     min-height: 315px;  /* for page reloading */
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 
 .hero h4 {
@@ -65,7 +63,7 @@ a:active {
 /** program setup settings **/
 
 .program-settings {
-    padding: 0px 0px 50px 0px;
+    padding: 25px 0px 50px 0px;
 }
 
 .program-setting {
@@ -79,6 +77,10 @@ a:active {
 
 .time-span {
     min-width: 160px;
+}
+
+.time-span a {
+    color: var(--color-text);
 }
 
 .program-setting .nav-link{
@@ -184,7 +186,7 @@ a:active {
 }
 
 .dubbed-switch .custom-control-label:active{
-    color: var(--color-link-active);
+    color: var(--color-text);
 }
 
 .dubbed-switch .dubbed-on{
@@ -214,8 +216,8 @@ a:active {
 
 /* knob after clicking */
 .dubbed-switch .custom-control-input:checked ~ .custom-control-label::after {
-  background-color: var(--color-link-active);
-  border: var(--color-link-active);
+  background-color: var(--color-text);
+  border: var(--color-text);
 }
 
 /** show list **/
@@ -334,6 +336,7 @@ footer {
 footer a {
     padding-left: 15px;
     font-size: 0.88rem;
+    color: var(--color-text);
 }
 
 footer img {
@@ -345,4 +348,18 @@ footer img {
 .donkey {
     padding-top: 50px;
     padding-bottom: 50px;
+}
+
+/* about */
+.about {
+    letter-spacing: 1.1px;
+    padding-top: 65px;
+}
+
+.about p {
+    font-size: 1.12rem;
+}
+
+.about h1 {
+    padding-bottom: 30px;
 }
