@@ -1,12 +1,6 @@
 from typing import Dict, List
 
-from kulturweb.viewmodels.data.shows import (
-    get_shows,
-    valid_categories,
-    valid_dubbed,
-    valid_locations,
-    valid_time_spans,
-)
+from kulturweb.viewmodels.data import shows
 from kulturweb.viewmodels.data.timespans import get_time_span_options
 from kulturweb.viewmodels.viewmodel_base import ViewModelBase
 from pyramid.request import Request
@@ -21,7 +15,7 @@ class HomeViewModel(ViewModelBase):
         self.dubbed: str = "nein"
         self.location: str = "alle"
         self.time_span_options: Dict = get_time_span_options(self.time_span)
-        self.shows: List = get_shows(
+        self.shows: List = shows.get_shows(
             time_span=self.time_span,
             category=self.category,
             dubbed=self.dubbed,
@@ -41,21 +35,21 @@ class FilterViewModel(ViewModelBase):
         self.shows: List = []
 
     def validate(self):
-        if self.category not in valid_categories:
+        if self.category not in shows.valid_categories:
             self.error = "not a valid url"
             return
-        if self.time_span not in valid_time_spans:
+        if self.time_span not in shows.valid_time_spans:
             self.error = "not a valid url"
             return
-        if self.dubbed not in valid_dubbed:
+        if self.dubbed not in shows.valid_dubbed:
             self.error = "not a valid url"
             return
-        if self.location not in valid_locations:
+        if self.location not in shows.valid_locations:
             self.error = "not a valid url"
             return
 
     def set_shows(self):
-        self.shows: List = get_shows(
+        self.shows: List = shows.get_shows(
             time_span=self.time_span,
             category=self.category,
             dubbed=self.dubbed,

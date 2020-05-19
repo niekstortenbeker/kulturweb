@@ -3,48 +3,32 @@ import pytest
 from pyramid.httpexceptions import HTTPNotFound
 
 
-def test_home(shows_list, mocker):
+def test_home(mock_get_shows, filter_dummy_request):
     # GIVEN a fake return from get_shows and a dummy request
-    from kulturweb.viewmodels.data import shows
+    from kulturweb.views import default
 
-    request = pyramid.testing.DummyRequest()
-    mocker.patch.object(shows, "get_shows", return_value=shows_list)
     # WHEN home view method is called
-    from kulturweb.views.default import home
-
     # noinspection PyTypeChecker
-    model = home(request)
+    model = default.home(filter_dummy_request)
     # THEN shows should be returned
     assert model
-    assert model[1].title == "adventures in the dark"
+    assert model["shows"][1].title == "adventures in the dark"
 
 
-def test_filter(shows_list, mocker):
+def test_filter(mock_get_shows, filter_dummy_request):
     # GIVEN a fake return from get_shows and a dummy request with the right keys
-    from kulturweb.viewmodels.data import shows
-
-    request = pyramid.testing.DummyRequest()
-    request.matchdict = {
-        "dubbed": "ja",
-        "category": "alle",
-        "time_span": "morgen",
-        "location": "schauburg",
-    }
-    mocker.patch.object(shows, "get_shows", return_value=shows_list)
     # WHEN filter view method is called
     from kulturweb.views.default import filter_shows
 
     # noinspection PyTypeChecker
-    model = filter_shows(request)
+    model = filter_shows(filter_dummy_request)
     # THEN shows should be returned
     assert model
-    assert model[1].title == "adventures in the dark"
+    assert model["shows"][1].title == "adventures in the dark"
 
 
-def test_filter_404(shows_list, mocker):
+def test_filter_404(mock_get_shows):
     # GIVEN a fake return from get_shows and a dummy request with a false location str
-    from kulturweb.viewmodels.data import shows
-
     request = pyramid.testing.DummyRequest()
     request.matchdict = {
         "dubbed": "ja",
@@ -52,11 +36,10 @@ def test_filter_404(shows_list, mocker):
         "time_span": "morgen",
         "location": "galaxy",
     }
-    mocker.patch.object(shows, "get_shows", return_value=shows_list)
     # WHEN filter view method is called
+    # THEN shows should be returned
     from kulturweb.views.default import filter_shows
 
-    # THEN shows should be returned
     with pytest.raises(HTTPNotFound):
         # noinspection PyTypeChecker
         filter_shows(request)
