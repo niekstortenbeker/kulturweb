@@ -1,6 +1,9 @@
 $(document).ready(function(){
 	$('#info').tooltip({ trigger: 'click hover focus' });
 });
+$(document).ready(function(){
+	$('#category-selected').tooltip({ trigger: 'hover focus' });
+});
 
 // description show more show less
 
