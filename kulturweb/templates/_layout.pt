@@ -7,7 +7,7 @@
         <meta name="description" content="Eine eigensinnige Auswahl Bremer
         Kulturangebote; mit Veranstaltungstermine für u.a. Theater Bremen, Schwankhalle,
         City 46 und Bremer Filmkunst Theater">
-        <title>Kultur - Eine eigensinnige Auswahl Bremer Kulturangebote</title>
+        <title>KULTUR BREMEN - Eine eigensinnige Auswahl Bremer Kulturangebote</title>
         <link rel="icon" href="${request.static_url('kulturweb:static/img/favicon.png')}" />
         <link rel="shortcut icon" href="${request.static_url('kulturweb:static/img/favicon.png')}" />
         <!--load jquery here otherwise loading issues-->
