@@ -22,10 +22,10 @@
                     <a tal:condition="category == 'kino'" id="category-selected" class="btn btn-primary ml-1 film" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings" data-toggle="tooltip" data-placement="bottom" title="click again to include all">Kino</a>
                     <a tal:condition="category not in ['kino', 'alle']" class="btn btn-outline-primary ml-1 film" href="/kino/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
                     <a tal:condition="category == 'alle'" class="btn btn-primary ml-1 stage" href="/buehne/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
-                    <a tal:condition="category == 'buehne'" class="btn btn-primary ml-1 stage" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
+                    <a tal:condition="category == 'buehne'" id="category-selected" class="btn btn-primary ml-1 stage" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings" data-toggle="tooltip" data-placement="bottom" title="click again to include all">Bühne</a>
                     <a tal:condition="category not in ['buehne', 'alle']" class="btn btn-outline-primary ml-1 stage" href="/buehne/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
                     <a tal:condition="category == 'alle'" class="btn btn-primary ml-1 music" href="/musik/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
-                    <a tal:condition="category == 'musik'" class="btn btn-primary ml-1 music" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
+                    <a tal:condition="category == 'musik'" id="category-selected" class="btn btn-primary ml-1 music" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings" data-toggle="tooltip" data-placement="bottom" title="click again to include all">Musik</a>
                     <a tal:condition="category not in ['musik', 'alle']" class="btn btn-outline-primary ml-1 music" href="/musik/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
                 </div>
 
