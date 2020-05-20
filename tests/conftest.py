@@ -21,11 +21,12 @@ def mock_get_shows(mocker):
     show.title = "adventures in the dark"
     show.description = "Amazing adventures in the dark, what a spectacle"
     show.date_time = arrow.get("2020-05-18 20:30").replace(tzinfo="Europe/Berlin")
+    show.day = "MO 18.05"  # not automatically generated because not added to db
     show.location = "City 46"
     show.category = "cinema"
     show.url_info = "https://www.nothing.de"
 
-    mocker.patch.object(shows, "get_shows", return_value=["MO 18.05.", show])
+    mocker.patch.object(shows, "get_shows", return_value=[show])
 
     yield
 

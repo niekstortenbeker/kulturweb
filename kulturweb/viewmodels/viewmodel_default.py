@@ -21,6 +21,7 @@ class HomeViewModel(ViewModelBase):
             dubbed=self.dubbed,
             location=self.location,
         )
+        self.day: str = shows.get_day(self.shows)
 
 
 class FilterViewModel(ViewModelBase):
@@ -33,6 +34,7 @@ class FilterViewModel(ViewModelBase):
         self.location: str = request.matchdict.get("location")
         self.time_span_options: Dict = get_time_span_options(self.time_span)
         self.shows: List = []
+        self.day: str = ""
 
     def validate(self):
         if self.category not in shows.valid_categories:
@@ -49,9 +51,10 @@ class FilterViewModel(ViewModelBase):
             return
 
     def set_shows(self):
-        self.shows: List = shows.get_shows(
+        self.shows = shows.get_shows(
             time_span=self.time_span,
             category=self.category,
             dubbed=self.dubbed,
             location=self.location,
         )
+        self.day = shows.get_day(self.shows)

@@ -59,7 +59,17 @@ def test_filterviewmodel_has_shows(mock_get_shows, filter_dummy_request):
     vm.set_shows()
     # THEN there should be shows
     assert vm.shows
-    assert vm.time_span
+
+
+def test_filterviewmodel_has_day(mock_get_shows, filter_dummy_request):
+    # GIVEN a dummy request with the right keys and get_shows is mocked
+    # WHEN FilterViewModel is instantiated, validated, and set_shows()
+    # noinspection PyTypeChecker
+    vm = FilterViewModel(filter_dummy_request)
+    vm.validate()
+    vm.set_shows()
+    # THEN there should be shows
+    assert vm.day
 
 
 def test_filterviewmodel_has_timespan_options(mock_get_shows, filter_dummy_request):
@@ -81,6 +91,16 @@ def test_homeviewmodel_has_shows(mock_get_shows):
     vm = HomeViewModel(request)
     # THEN there should be shows
     assert vm.shows
+
+
+def test_homeviewmodel_has_day(mock_get_shows):
+    # GIVEN a dummy request and get_shows is mocked
+    request = DummyRequest()
+    # WHEN HomeViewModel is instantiated
+    # noinspection PyTypeChecker
+    vm = HomeViewModel(request)
+    # THEN there should be shows
+    assert vm.day
 
 
 def test_homeviewmodel_has_timespan_options(mock_get_shows):

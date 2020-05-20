@@ -34,21 +34,14 @@ def get_shows(
     category = valid_categories[category]
     location = valid_locations[location]
     dubbed = valid_dubbed[dubbed]
-    shows = kultur.get_shows(start, stop, category, dubbed, location)
-    return _insert_days(shows)
+    return kultur.get_shows(start, stop, category, dubbed, location)
 
 
-def _insert_days(shows: List[Show]) -> List[Union[Show, str]]:
-    new_shows = []
-    day = ""
-    for show in shows:
-        if show.day != day:
-            day = show.day
-            new_shows.append(day)
-            new_shows.append(show)
-        else:
-            new_shows.append(show)
-    return new_shows
+def get_day(shows: List[Show]) -> str:
+    if not shows:
+        return ""
+    else:
+        return shows[0].day
 
 
 def _translate_time_span(time_span: str) -> Tuple[Arrow, Arrow]:

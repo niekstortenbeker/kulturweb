@@ -12,7 +12,7 @@ def test_home(mock_get_shows, filter_dummy_request):
     model = default.home(filter_dummy_request)
     # THEN shows should be returned
     assert model
-    assert model["shows"][1].title == "adventures in the dark"
+    assert model["shows"][0].title == "adventures in the dark"
 
 
 def test_filter(mock_get_shows, filter_dummy_request):
@@ -24,7 +24,7 @@ def test_filter(mock_get_shows, filter_dummy_request):
     model = filter_shows(filter_dummy_request)
     # THEN shows should be returned
     assert model
-    assert model["shows"][1].title == "adventures in the dark"
+    assert model["shows"][0].title == "adventures in the dark"
 
 
 def test_filter_404(mock_get_shows):
