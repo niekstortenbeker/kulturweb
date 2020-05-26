@@ -60,10 +60,9 @@ git clone https://github.com/niekstortenbeker/kulturweb app_repo/kulturweb
 cd /apps/app_repo/kultur || exit
 python setup.py develop
 cd /apps/app_repo/kulturweb || exit
-# pip install -r requirements.txt
 python setup.py develop
 
-# Copy and enable the daemon
+# Copy uWSGI details to systemd and enable the daemon
 cp /apps/app_repo/kulturweb/server/kulturweb.service /etc/systemd/system/
 
 systemctl start kulturweb
