@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # https://www.digitalocean.com/community/tutorials/how-to-set-up-uwsgi-and-nginx-to-serve-python-apps-on-ubuntu-14-04
-https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-20-04
+# https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-20-04
 # https://docs.pylonsproject.org/projects/pyramid-cookbook/en/latest/deployment/uwsgi_cookiecutter_1_nginx.html
 
 # Consider running these two commands separately
