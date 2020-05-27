@@ -169,6 +169,6 @@
 </div>
 
 <div metal:fill-slot="additional-js" tal:omit-tag>
-    <script src="${request.static_url('kulturweb:static/js/local.js')}"></script>
+    <script src="${request.static_url('kulturweb:static/js/local.js', _app_url=app_url)}"></script>
 </div>
 </div>

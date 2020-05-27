@@ -54,7 +54,7 @@ def test_impressum():
     # noinspection PyTypeChecker
     model = impressum(request)
     # THEN an empty dict should be returned
-    assert not model
+    assert model["app_url"]
 
 
 def test_about():
@@ -66,7 +66,7 @@ def test_about():
     # noinspection PyTypeChecker
     model = about(request)
     # THEN an empty dict should be returned
-    assert not model
+    assert model["app_url"]
 
 
 def test_not_found():
@@ -78,4 +78,4 @@ def test_not_found():
     # noinspection PyTypeChecker
     model = notfound_view(request)
     # THEN an empty dict should be returned
-    assert not model
+    assert model["app_url"]

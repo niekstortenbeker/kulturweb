@@ -8,14 +8,14 @@
         Kulturangebote; mit Veranstaltungstermine für u.a. Theater Bremen, Schwankhalle,
         City 46 und Bremer Filmkunst Theater">
         <title>KULTUR BREMEN | Eine eigensinnige Auswahl Bremer Kulturangebote</title>
-        <link rel="icon" href="${request.static_url('kulturweb:static/img/favicon.png')}" />
-        <link rel="shortcut icon" href="${request.static_url('kulturweb:static/img/favicon.png')}" />
+        <link rel="icon" href="${request.static_url('kulturweb:static/img/favicon.png', _app_url=app_url)}" />
+        <link rel="shortcut icon" href="${request.static_url('kulturweb:static/img/favicon.png', _app_url=app_url)}" />
         <!--load jquery here otherwise loading issues-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <!-- Custom styles for this scaffold -->
-        <link href="${request.static_url('kulturweb:static/css/site.css')}" rel="stylesheet">
+        <link href="${request.static_url('kulturweb:static/css/site.css', _app_url=app_url)}" rel="stylesheet">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
         <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"
@@ -33,7 +33,7 @@
                 <div class="row justify-content-start">
                     <div class="col align-self-center">
                         <a href="/">
-                            <img src="/static/img/logo.svg" class="img-fluid" alt="KULTUR BREMEN">
+                            <img src="${request.static_url('kulturweb:static/img/logo.svg', _app_url=app_url)}" class="img-fluid" alt="KULTUR BREMEN">
                         </a>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                 <div class="row justify-content-start">
                     <div class="col align-self-center">
                         <div class="text-center">
-                            <img src="/static/img/rooster.svg" class="img-fluid" alt="rooster">
+                            <img src="${request.static_url('kulturweb:static/img/rooster.svg', _app_url=app_url)}" class="img-fluid" alt="rooster">
                         </div>
                         <div class="align-bottom text-right">
                             <a href="/about">ÜBER UNS</a>

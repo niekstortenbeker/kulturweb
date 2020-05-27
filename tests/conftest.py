@@ -40,4 +40,5 @@ def filter_dummy_request():
         "time_span": "morgen",
         "location": "schauburg",
     }
+    request.registry.settings = {"kulturweb.app_url": "http://localhost:6543/"}
     return request
