@@ -4,7 +4,7 @@
         <div class="content">
             <h1 class="text-center display-3">PAGINA NIET GEVONDEN</h1>
             <div class="text-center donkey">
-                <img src="${request.static_url('kulturweb:static/img/donkey.svg', _app_url=app_url)}" class="img-fluid" alt="sad donkey">
+                <img src="${request.static_url('kulturweb:static/img/donkey1.svg', _app_url=app_url)}" class="img-fluid" alt="sad donkey">
             </div>
             <p class="text-center lead">Helaas, we hebben niet gevonden wat je zoekt</p>
             <p class="text-center lead"><a href="/"><mark>take me back home</mark></a></p>
