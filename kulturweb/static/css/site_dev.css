@@ -214,10 +214,19 @@ a:active {
     color: var(--color-text);
     text-decoration: underline;
 }
-
+@media (min-width: 1200px) {
+    .show-list-wrapper {
+        padding-left: 20%;
+    }
+}
 .show-list {
     background-color: var(--color-show-list);
     padding-bottom: 30px;
+    max-width: 950px;
+}
+
+.warning-message {
+    max-width: 950px;
 }
 
 .all-theaters a {
