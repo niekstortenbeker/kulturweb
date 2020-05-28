@@ -48,8 +48,8 @@
             </div>
         </div>
     </div>
-
-    <div class="container">
+    <div class="show-list-wrapper">
+        <div class="container warning-message">
         <div class="row">
             <div class="col">
                 <div class="alert alert-danger" role="alert">
@@ -59,8 +59,7 @@
             </div>
         </div>
     </div>
-
-    <div class="container rounded show-list">
+        <div class="container rounded show-list">
         <div class="row justify-content-center">
 
             <div class="col-sm-auto">
@@ -165,6 +164,8 @@
 
         </div>
     </div>
+    </div>
+
 
 </div>
 
