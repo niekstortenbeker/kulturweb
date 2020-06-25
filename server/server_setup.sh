@@ -62,6 +62,9 @@ cd /apps || exit
 git clone https://github.com/niekstortenbeker/kultur app_repo/kultur
 git clone https://github.com/niekstortenbeker/kulturweb app_repo/kulturweb
 
+#Setup for kultur
+apt install firefox-geckodriver
+
 # Setup the web app:
 cd /apps/app_repo/kultur || exit
 python setup.py develop
