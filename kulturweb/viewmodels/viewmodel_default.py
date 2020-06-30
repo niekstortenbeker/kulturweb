@@ -22,6 +22,10 @@ class HomeViewModel(ViewModelBase):
             location=self.location,
         )
         self.day: str = shows.get_day(self.shows)
+        if not self.shows:
+            self.no_more_shows_today: bool = True
+        else:
+            self.no_more_shows_today: bool = False
 
 
 class FilterViewModel(ViewModelBase):
@@ -35,6 +39,7 @@ class FilterViewModel(ViewModelBase):
         self.time_span_options: Dict = get_time_span_options(self.time_span)
         self.shows: List = []
         self.day: str = ""
+        self.no_more_shows_today = False
 
     def validate(self):
         if self.category not in shows.valid_categories:
@@ -58,3 +63,7 @@ class FilterViewModel(ViewModelBase):
             location=self.location,
         )
         self.day = shows.get_day(self.shows)
+        if (not self.shows) and self.category == "alle" and self.location == "alle":
+            self.no_more_shows_today = True
+        else:
+            self.no_more_shows_today = False

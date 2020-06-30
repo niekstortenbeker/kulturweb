@@ -18,15 +18,14 @@
                 </div>
 
                 <div class="col-sm-auto align-self-center program-setting category my-2">
-                    <a tal:condition="category == 'alle'" class="btn btn-primary ml-1 film" href="/kino/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
-                    <a tal:condition="category == 'kino'" id="category-selected" class="btn btn-primary ml-1 film" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings" data-toggle="tooltip" data-placement="bottom" title="click again to include all">Kino</a>
-                    <a tal:condition="category not in ['kino', 'alle']" class="btn btn-outline-primary ml-1 film" href="/kino/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
-                    <a tal:condition="category == 'alle'" class="btn btn-primary ml-1 stage" href="/buehne/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
-                    <a tal:condition="category == 'buehne'" id="category-selected" class="btn btn-primary ml-1 stage" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings" data-toggle="tooltip" data-placement="bottom" title="click again to include all">Bühne</a>
-                    <a tal:condition="category not in ['buehne', 'alle']" class="btn btn-outline-primary ml-1 stage" href="/buehne/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
-                    <a tal:condition="category == 'alle'" class="btn btn-primary ml-1 music" href="/musik/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
-                    <a tal:condition="category == 'musik'" id="category-selected" class="btn btn-primary ml-1 music" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings" data-toggle="tooltip" data-placement="bottom" title="click again to include all">Musik</a>
-                    <a tal:condition="category not in ['musik', 'alle']" class="btn btn-outline-primary ml-1 music" href="/musik/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
+                    <a tal:condition="category == 'alle'" id="category-selected" class="btn btn-primary ml-1 alle">Alle</a>
+                    <a tal:condition="category != 'alle'" class="btn btn-outline-primary ml-1 alle" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Alle</a>
+                    <a tal:condition="category == 'kino'" id="category-selected" class="btn btn-primary ml-1 film" href="#">Kino</a>
+                    <a tal:condition="category != 'kino'" class="btn btn-outline-primary ml-1 film" href="/kino/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
+                    <a tal:condition="category == 'buehne'" id="category-selected" class="btn btn-primary ml-1 stage" href="#">Bühne</a>
+                    <a tal:condition="category != 'buehne'" class="btn btn-outline-primary ml-1 stage" href="/buehne/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
+                    <a tal:condition="category == 'musik'" id="category-selected" class="btn btn-primary ml-1 music" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
+                    <a tal:condition="category != 'musik'" class="btn btn-outline-primary ml-1 music" href="/musik/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
                 </div>
 
                 <div class="col-sm-auto align-self-center text-center my-2">
@@ -62,13 +61,20 @@
         <div class="row justify-content-center">
 
             <div class="col-sm-auto">
-                <div class="not-shows" tal:condition="not shows">
+                <div class="not-shows" tal:condition="(not shows) and (not no_more_shows_today)">
                     <br>
                     <br>
                     <h3 >Leider keine Veranstaltungen mit diesen Filtern gefunden</h3>
                     <br>
                     <br>
                     <p class="text-center lead"><a href="/#settings">take me back home</a></p>
+                </div>
+                <div class="not-shows" tal:condition="no_more_shows_today">
+                    <br>
+                    <br>
+                    <h3 >Heute gibt es keine Veranstaltungen mehr</h3>
+                    <br>
+                    <br>
                 </div>
                 <div class="day" tal:condition="shows">
                     <h2>${day}</h2>

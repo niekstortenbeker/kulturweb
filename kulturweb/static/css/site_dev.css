@@ -113,6 +113,12 @@ a:active {
 
 /* category buttons (on) */
 
+.program-setting.category .btn-primary.alle {
+    background-color: var(--color-text-light-grey);
+    border-color: var(--color-text-light-grey);
+    color: #fff;
+}
+
 .program-setting.category .btn-primary.film {
     background-color: var(--color-film);
     border-color: var(--color-film);
@@ -127,12 +133,18 @@ a:active {
     background-color: var(--color-music);
     border-color: var(--color-music);
 }
-.program-setting.category .btn-primary:hover {
-    filter: brightness(150%);
-}
 
 /* category buttons (off) */
 
+.program-setting.category .btn-outline-primary.alle {
+    color: var(--color-text-light-grey);
+    border-color: var(--color-text-light-grey);
+}
+.program-setting.category .btn-outline-primary.alle:hover {
+    background-color: var(--color-text-light-grey);
+    border-color: var(--color-text-light-grey);
+    color: #fff;
+}
 .program-setting.category .btn-outline-primary.film {
     color: var(--color-film);
     border-color: var(--color-film);
