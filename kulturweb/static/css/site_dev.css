@@ -31,6 +31,9 @@ a:hover {
 a:active {
     color: var(--color-text)!important;
 }
+.btn.disabled, .btn:disabled {
+    opacity: 1;
+}
 
 /* HERO */
 
@@ -38,14 +41,12 @@ a:active {
     color: #fff;
     background: linear-gradient(120deg, var(--color-hero-dark) 80%, #fff 80%);
     padding: 30px 10px 20px;
-    min-height: 315px;
+    min-height: 250px;
     /* for page reloading */
     margin-bottom: 25px;
 }
 
 .hero h4 {
-    padding-left: 10px;
-    padding-top: 20px;
     font-size: 1.4rem;
 }
 @media (max-width: 768px) {

@@ -18,13 +18,13 @@
                 </div>
 
                 <div class="col-sm-auto align-self-center program-setting category my-2">
-                    <a tal:condition="category == 'alle'" id="category-selected" class="btn btn-primary ml-1 alle">Alle</a>
+                    <a tal:condition="category == 'alle'" id="category-selected" class="btn btn-primary ml-1 alle disabled">Alle</a>
                     <a tal:condition="category != 'alle'" class="btn btn-outline-primary ml-1 alle" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Alle</a>
-                    <a tal:condition="category == 'kino'" id="category-selected" class="btn btn-primary ml-1 film" href="#">Kino</a>
+                    <a tal:condition="category == 'kino'" id="category-selected" class="btn btn-primary ml-1 film disabled">Kino</a>
                     <a tal:condition="category != 'kino'" class="btn btn-outline-primary ml-1 film" href="/kino/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Kino</a>
-                    <a tal:condition="category == 'buehne'" id="category-selected" class="btn btn-primary ml-1 stage" href="#">Bühne</a>
+                    <a tal:condition="category == 'buehne'" id="category-selected" class="btn btn-primary ml-1 stage disabled">Bühne</a>
                     <a tal:condition="category != 'buehne'" class="btn btn-outline-primary ml-1 stage" href="/buehne/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Bühne</a>
-                    <a tal:condition="category == 'musik'" id="category-selected" class="btn btn-primary ml-1 music" href="/alle/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
+                    <a tal:condition="category == 'musik'" id="category-selected" class="btn btn-primary ml-1 music disabled">Musik</a>
                     <a tal:condition="category != 'musik'" class="btn btn-outline-primary ml-1 music" href="/musik/${location}/wann=${time_span}+synchronisierter=${dubbed}#settings">Musik</a>
                 </div>
 
@@ -48,15 +48,6 @@
         </div>
     </div>
     <div class="show-list-wrapper">
-        <div class="container warning-message">
-        <div class="row">
-            <div class="col">
-                <div class="alert alert-danger" role="alert">
-                    VORSICHT! Diese Website befindet sich in der Entwicklung.
-                </div>
-            </div>
-        </div>
-    </div>
         <div class="container rounded show-list">
         <div class="row justify-content-center">
 
@@ -170,8 +161,6 @@
         </div>
     </div>
     </div>
-
-
 </div>
 
 <div metal:fill-slot="additional-js" tal:omit-tag>
