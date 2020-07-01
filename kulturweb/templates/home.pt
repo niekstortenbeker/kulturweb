@@ -47,7 +47,6 @@
             </div>
         </div>
     </div>
-    <div class="show-list-wrapper">
         <div class="container rounded show-list">
         <div class="row justify-content-center">
 
@@ -159,7 +158,6 @@
             </div>
 
         </div>
-    </div>
     </div>
 </div>
 
